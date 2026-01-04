@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ChatGPT Plus Guide - Blog Index</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "primary-dark": "#0b63b8",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2632",
+                        "text-main-light": "#0d141b",
+                        "text-main-dark": "#e7edf3",
+                        "text-sec-light": "#4c739a",
+                        "text-sec-dark": "#9aaebb",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #334155;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-display min-h-screen flex flex-col transition-colors duration-200">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<!-- Logo & Brand -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-3 text-text-main-light dark:text-text-main-dark hover:opacity-80 transition-opacity" href="#">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">smart_toy</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight hidden sm:block">ChatGPT Plus Guide</h1>
+</a>
+</div>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium text-primary" href="#">Guides</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Resources</a>
+</nav>
+<!-- Search & Action -->
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-text-sec-light dark:text-text-sec-dark">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</span>
+<input class="w-64 py-2 pl-10 pr-4 bg-gray-100 dark:bg-gray-800 border-none rounded-full text-sm focus:ring-2 focus:ring-primary placeholder-text-sec-light dark:placeholder-text-sec-dark transition-all" placeholder="Search guides..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary-dark text-white text-sm font-bold py-2 px-5 rounded-full transition-colors shadow-sm shadow-primary/20">
+                        Subscribe
+                    </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-text-main-light dark:text-text-main-dark">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+<div class="flex flex-col lg:flex-row gap-10">
+<!-- Left Column: Blog Feed (2/3 width) -->
+<div class="flex-1 min-w-0">
+<!-- Section Header -->
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold">Featured Guide</h2>
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<!-- Featured Post Card -->
+<article class="group relative flex flex-col md:flex-row items-stretch bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden mb-12 border border-gray-100 dark:border-gray-800">
+<div class="w-full md:w-2/5 h-64 md:h-auto bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Abstract visualization of deep data analysis with dark blue geometric patterns" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeFn7btJ3VbigfJxEJ0Uzss84A4I2lRxHPapwemcLJGHjR9yAQH2tqtZTg6f2o_ekoVT5VBuHTN1ovNhpsiQmCkZLL7RjnyJsgRQNL9jOngHF7E0wORSYAVY1QCBzdby-ndlHGuF_xiAJUw40E3469ihH9J6w5y3WmnznAVU7m2fHmEvNG4ACVMh7cEPqcXSkp6Z5mOaApSrwHFmV6ZVdrULJ39FlUtDsAptgc03AYejOfZV2FWj-lvw68gihGmJatC5O1K_razH1W');"></div>
+</div>
+<div class="flex-1 p-6 md:p-8 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-primary/10 text-primary text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Analysis</span>
+<span class="text-text-sec-light dark:text-text-sec-dark text-xs">• Feb 24, 2024</span>
+</div>
+<h3 class="text-2xl md:text-3xl font-bold leading-tight mb-3 text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
+                            Deep Research: When and how to use it for maximum impact
+                        </h3>
+<p class="text-text-sec-light dark:text-text-sec-dark text-base md:text-lg leading-relaxed mb-6 line-clamp-2 md:line-clamp-3">
+                            Mastering ChatGPT Plus: The Ultimate Guide to uncovering deep insights with AI analysis. Learn how to combine web browsing with data interpretation.
+                        </p>
+<div class="mt-auto pt-4 flex items-center gap-3">
+<div class="size-8 rounded-full bg-gray-300 dark:bg-gray-600 overflow-hidden" data-alt="Author profile picture showing a smiling person">
+<!-- Placeholder for avatar -->
+<svg class="w-full h-full text-gray-400" fill="currentColor" viewbox="0 0 24 24"><path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+</div>
+<div class="text-sm">
+<p class="font-semibold text-text-main-light dark:text-text-main-dark">Alex Chen</p>
+<p class="text-text-sec-light dark:text-text-sec-dark text-xs">AI Research Lead</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Feed Header & Filters -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+<h2 class="text-2xl font-bold">Latest Guides</h2>
+<!-- Mobile Categories (Dropdown style for small screens if needed, simple horizontal scroll here) -->
+<div class="flex gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide sm:hidden">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-primary text-white text-sm font-medium">All</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-text-sec-light dark:text-text-sec-dark text-sm font-medium">Voice Mode</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-text-sec-light dark:text-text-sec-dark text-sm font-medium">DALL-E 3</button>
+</div>
+</div>
+<!-- Posts Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Card 1 -->
+<article class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 group h-full">
+<div class="aspect-video w-full bg-gray-200 dark:bg-gray-700 rounded-t-2xl overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist illustration representing a starting point or launchpad" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFUgSbfg4gTQTXxkCXpWb_WtZNEdfzzk3sfTc_QUyMQsi3pJKZfT9gS3oEr32lTVO0IT8jKJ4ENQZMaWdxeqcGCpxxAlr27sXj7k22MaBTiwd9Bbjzkbr29Iz8l-4STHmq5GYxwCkOEfWuvRCOrPoEJHrlmQpl8O8ILN3HOl4yvzWFCoIH8LG3dengyyO60lOPAT0FBnTGbmgN1vB4RK-Q9x9NspZ0fF0JaVk8TLwYiGQYlrPqWmSTER5V0_fWj15JxU43kcoc4UpL');"></div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold text-primary uppercase tracking-wide">Getting Started</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">5 min read</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-text-main-light dark:text-text-main-dark leading-snug group-hover:text-primary transition-colors">
+<a href="#">What is ChatGPT Plus and who is it for?</a>
+</h3>
+<p class="text-text-sec-light dark:text-text-sec-dark text-sm leading-relaxed mb-4 flex-1">
+                                An introductory breakdown of the subscription tier, benefits over the free version, and user personas.
+                            </p>
+<div class="flex items-center gap-2 pt-2 border-t border-gray-100 dark:border-gray-800 mt-auto">
+<span class="material-symbols-outlined text-base text-text-sec-light">schedule</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">Feb 22, 2024</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 group h-full">
+<div class="aspect-video w-full bg-gray-200 dark:bg-gray-700 rounded-t-2xl overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Sound wave visualization in green tones" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKNqTBFg2Wx9CURHqaF_K3KA81brh-lAJGCHbG1LpYvTvjtyMgvgUgQx8wyzIMq0FwnMW8ATTzNxGkJzZ6pI3ca8h-N-ZNGlX3HxF2723mbSBuw0J3xeobWxbXElL0BVFPWqU9H6w4JWU8bW72ww2r6PDQb_SG15LXppya006YkSuiKFQrkE4G6vsHFLNpk5uUiAzrtBsnsQmHjZ7OLxaf503Sq6ugceNE1lBjiJXqEUz-fAfIm0b4wyQsoGOYJPBNpcywQayQQiVM');"></div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold text-green-600 uppercase tracking-wide">Features</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">3 min read</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-text-main-light dark:text-text-main-dark leading-snug group-hover:text-primary transition-colors">
+<a href="#">Using Voice mode effectively</a>
+</h3>
+<p class="text-text-sec-light dark:text-text-sec-dark text-sm leading-relaxed mb-4 flex-1">
+                                Tips and tricks for conversational AI. How to interrupt, change accents, and use it for language learning.
+                            </p>
+<div class="flex items-center gap-2 pt-2 border-t border-gray-100 dark:border-gray-800 mt-auto">
+<span class="material-symbols-outlined text-base text-text-sec-light">schedule</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">Feb 20, 2024</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 group h-full">
+<div class="aspect-video w-full bg-gray-200 dark:bg-gray-700 rounded-t-2xl overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract colorful artistic splash representing image generation" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoINUKS4LrOEthxaIg3Qdw6qlbjUUdSBcvT030ZChsCiUcyOHYZyT60dltzn8nOLTv-SiUUBq71pMclfd_a9JR91w2xw--jiaYdHV2zfJjWtK7kH1o2zNDIx_-0ZKB7GKnW1DRCPwG1a9NzJsPjvlvZ5bbIfiHFKaLFtYvn125q-Po_DstoWk1OzWY5qY5ERPzWXpWMQsURi6MnFUI_sz9VWi3E83o3ho-I-WJkf8fCVICHw-44cyAo2PqGCIE46jroVpFS96AFVKj');"></div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold text-purple-600 uppercase tracking-wide">DALL-E 3</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">7 min read</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-text-main-light dark:text-text-main-dark leading-snug group-hover:text-primary transition-colors">
+<a href="#">Image generation workflows</a>
+</h3>
+<p class="text-text-sec-light dark:text-text-sec-dark text-sm leading-relaxed mb-4 flex-1">
+                                From prompt engineering to iterating on specific details. How to get the exact image style you need.
+                            </p>
+<div class="flex items-center gap-2 pt-2 border-t border-gray-100 dark:border-gray-800 mt-auto">
+<span class="material-symbols-outlined text-base text-text-sec-light">schedule</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">Feb 18, 2024</span>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 group h-full">
+<div class="aspect-video w-full bg-gray-200 dark:bg-gray-700 rounded-t-2xl overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Chart and graph visualization icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDMVTsgXu8hBnTr3IWQ2cVHEPKcqP9ZQF6IqGpUABlpRqzco46uYCiUe07jD6KS4CqKC0-kPb1C9Ynr1NMjTWL_I9RvUDIdsAiNxFdcBoFfgplSk-NsTdS3mbQeXxCdZaEMjSOUaMOftIcSKPLAhzO_enePNGVhKKfZV-tWIRvUF_VMFieQJgQRnDT6tIRWY7NxDPgu_6ePbAEYbi-KS0oziHpuylYwq5V-P6IV1Wezq2T99dbyZifezRCek-HWizshN7LdnmLr52D');"></div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold text-amber-600 uppercase tracking-wide">Data Analysis</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">6 min read</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-text-main-light dark:text-text-main-dark leading-snug group-hover:text-primary transition-colors">
+<a href="#">File uploads &amp; analysis for reports</a>
+</h3>
+<p class="text-text-sec-light dark:text-text-sec-dark text-sm leading-relaxed mb-4 flex-1">
+                                How to upload CSVs, PDFs, and Excel sheets to extract summaries and create visual charts instantly.
+                            </p>
+<div class="flex items-center gap-2 pt-2 border-t border-gray-100 dark:border-gray-800 mt-auto">
+<span class="material-symbols-outlined text-base text-text-sec-light">schedule</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">Feb 15, 2024</span>
+</div>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 group h-full md:col-span-2 lg:col-span-2">
+<div class="flex flex-col md:flex-row h-full">
+<div class="md:w-1/3 aspect-video md:aspect-auto bg-gray-200 dark:bg-gray-700 relative overflow-hidden md:rounded-l-2xl md:rounded-tr-none rounded-t-2xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Gear icons and robotic arm illustration" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBm2OAIvtwYgeVNeRbvujc1d_2sfIfibeID2jeeKi_Cx5n88aRdzYMa7eoenv93Ph6sVQColuHjj0gDuccvoh566mQoqblsV8MGwfxucGG1fG62Yx_BSJMBNgGOcgaDIvVOkZeKSmoaBbxOIhYjsoVyWEIn6RYzEdYw-77ue-4rxJ7F-MWageUcpOJs-4eeNTlWxr0H7z-JOl_lVT_H4DvmPo56IwVnOyyr-JDe819hFpdP-nmttG8DllFU4ebbGuQSfQmibpGMGhc5');"></div>
+</div>
+<div class="p-6 flex flex-col justify-center md:w-2/3">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold text-red-500 uppercase tracking-wide">Advanced</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">10 min read</span>
+</div>
+<h3 class="text-2xl font-bold mb-3 text-text-main-light dark:text-text-main-dark leading-snug group-hover:text-primary transition-colors">
+<a href="#">Creating Custom GPTs for repeated tasks</a>
+</h3>
+<p class="text-text-sec-light dark:text-text-sec-dark text-sm md:text-base leading-relaxed mb-4">
+                                    Stop writing the same prompt over and over. Learn how to configure a Custom GPT with specific instructions, knowledge files, and actions.
+                                </p>
+<div class="flex items-center gap-2 pt-2">
+<span class="material-symbols-outlined text-base text-text-sec-light">schedule</span>
+<span class="text-xs text-text-sec-light dark:text-text-sec-dark">Feb 10, 2024</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Load More / Pagination -->
+<div class="mt-12 flex justify-center">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 dark:border-gray-700 bg-surface-light dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm font-semibold text-text-main-light dark:text-text-main-dark">
+                        Load More Articles
+                        <span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+</div>
+<!-- Empty State (Hidden for demonstration, remove 'hidden' class to see) -->
+<div class="hidden flex-col items-center justify-center py-20 bg-surface-light dark:bg-surface-dark rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 mt-10">
+<div class="size-20 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-gray-400">search_off</span>
+</div>
+<h3 class="text-lg font-bold text-text-main-light dark:text-text-main-dark mb-2">No guides found</h3>
+<p class="text-text-sec-light dark:text-text-sec-dark text-center max-w-xs mb-6">
+                        We couldn't find any articles matching your search filters. Try adjusting your criteria.
+                    </p>
+<button class="text-primary hover:text-primary-dark font-medium text-sm">Clear all filters</button>
+</div>
+</div>
+<!-- Right Column: Sidebar (1/3 width) -->
+<aside class="w-full lg:w-80 flex-shrink-0 space-y-8">
+<!-- Newsletter Widget -->
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm relative overflow-hidden group">
+<div class="absolute -top-10 -right-10 size-32 bg-primary/5 rounded-full group-hover:bg-primary/10 transition-colors"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-3 text-primary">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-xs font-bold uppercase tracking-wider">Newsletter</span>
+</div>
+<h3 class="text-lg font-bold mb-2">Weekly AI Insights</h3>
+<p class="text-sm text-text-sec-light dark:text-text-sec-dark mb-4">
+                            Get the latest prompts, guide updates, and AI news delivered to your inbox every Friday.
+                        </p>
+<form class="space-y-3" onsubmit="event.preventDefault();">
+<input class="w-full px-4 py-2.5 rounded-xl bg-background-light dark:bg-background-dark border-transparent focus:border-primary focus:ring-0 text-sm transition-all" placeholder="you@example.com" required="" type="email"/>
+<button class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-dark text-white text-sm font-bold transition-colors" type="submit">
+                                Subscribe Free
+                            </button>
+</form>
+</div>
+</div>
+<!-- Categories Widget -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+<div class="p-5 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<h3 class="font-bold text-lg">Topics</h3>
+<a class="text-xs text-primary font-medium hover:underline" href="#">View All</a>
+</div>
+<div class="p-2">
+<nav class="flex flex-col">
+<a class="flex items-center justify-between px-4 py-3 rounded-xl bg-primary/5 text-primary font-medium" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+<span class="text-sm">Getting Started</span>
+</div>
+<span class="text-xs bg-white dark:bg-gray-800 px-2 py-0.5 rounded-md shadow-sm">12</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-xl text-text-sec-light dark:text-text-sec-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span class="text-sm">Advanced Features</span>
+</div>
+<span class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-md">8</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-xl text-text-sec-light dark:text-text-sec-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+<span class="text-sm">DALL-E 3</span>
+</div>
+<span class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-md">15</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-xl text-text-sec-light dark:text-text-sec-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="text-sm">Data Analysis</span>
+</div>
+<span class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-md">6</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-xl text-text-sec-light dark:text-text-sec-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+<span class="text-sm">Voice Mode</span>
+</div>
+<span class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-md">4</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Popular Posts Widget -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+<div class="p-5 border-b border-gray-100 dark:border-gray-800">
+<h3 class="font-bold text-lg">Popular Reads</h3>
+</div>
+<div class="divide-y divide-gray-100 dark:divide-gray-800">
+<a class="flex items-start gap-4 p-5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group" href="#">
+<span class="text-2xl font-bold text-gray-200 dark:text-gray-700 group-hover:text-primary transition-colors">1</span>
+<div>
+<h4 class="text-sm font-semibold text-text-main-light dark:text-text-main-dark mb-1 group-hover:text-primary transition-colors">10 Tips for better prompts</h4>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark">Mastering context windows</p>
+</div>
+</a>
+<a class="flex items-start gap-4 p-5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group" href="#">
+<span class="text-2xl font-bold text-gray-200 dark:text-gray-700 group-hover:text-primary transition-colors">2</span>
+<div>
+<h4 class="text-sm font-semibold text-text-main-light dark:text-text-main-dark mb-1 group-hover:text-primary transition-colors">API vs Plus: What to choose?</h4>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark">Cost analysis for heavy users</p>
+</div>
+</a>
+<a class="flex items-start gap-4 p-5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group" href="#">
+<span class="text-2xl font-bold text-gray-200 dark:text-gray-700 group-hover:text-primary transition-colors">3</span>
+<div>
+<h4 class="text-sm font-semibold text-text-main-light dark:text-text-main-dark mb-1 group-hover:text-primary transition-colors">The hidden features of GPT-4</h4>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark">Stuff OpenAI didn't announce</p>
+</div>
+</a>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 py-12 mt-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-text-sec-light dark:text-text-sec-dark">
+<span class="material-symbols-outlined text-primary">smart_toy</span>
+<span class="text-sm font-medium">© 2024 ChatGPT Plus Guide</span>
+</div>
+<div class="flex gap-6 text-sm text-text-sec-light dark:text-text-sec-dark font-medium">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

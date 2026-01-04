@@ -1,0 +1,251 @@
+services:
+  db_wp:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./volumes/db_wp:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  wp:
+    build: ./docker/wp
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      WP_DB_HOST: db_wp
+      WP_URL: ${WP_URL}
+      WP_TITLE: ${WP_TITLE}
+      WP_ADMIN_USER: ${WP_ADMIN_USER}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+    volumes:
+      - ./wordpress:/var/www/html
+    depends_on:
+      db_wp:
+        condition: service_healthy
+
+  supabase-db:
+    image: supabase/postgres:15.1.0.89
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: postgres
+      JWT_SECRET: ${JWT_SECRET}
+      ANON_KEY: ${ANON_KEY}
+      SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
+    volumes:
+      - ./volumes/supabase_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  supabase-auth:
+    image: supabase/gotrue:v2.151.0
+    restart: unless-stopped
+    environment:
+      API_EXTERNAL_URL: ${PUBLIC_SUPABASE_URL}
+      GOTRUE_SITE_URL: ${SITE_URL}
+      GOTRUE_API_HOST: 0.0.0.0
+      GOTRUE_API_PORT: 9999
+      GOTRUE_DB_DRIVER: postgres
+      GOTRUE_DB_DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@supabase-db:5432/postgres?sslmode=disable
+      GOTRUE_JWT_SECRET: ${JWT_SECRET}
+      GOTRUE_JWT_AUD: authenticated
+      GOTRUE_JWT_DEFAULT_GROUP_NAME: authenticated
+      GOTRUE_EXTERNAL_EMAIL_ENABLED: "true"
+      GOTRUE_MAILER_AUTOCONFIRM: "true"
+      GOTRUE_URI_ALLOW_LIST: ${SITE_URL}
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:9999/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  supabase-rest:
+    image: postgrest/postgrest:v12.2.0
+    restart: unless-stopped
+    environment:
+      PGRST_DB_URI: postgres://postgres:${POSTGRES_PASSWORD}@supabase-db:5432/postgres
+      PGRST_DB_SCHEMA: public,storage,graphql_public
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_JWT_SECRET: ${JWT_SECRET}
+      PGRST_DB_USE_LEGACY_GUCS: "false"
+      PGRST_SERVER_PORT: 3000
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "postgrest", "--version"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  supabase-realtime:
+    image: supabase/realtime:v2.27.5
+    restart: unless-stopped
+    environment:
+      FLY_APP_NAME: ${REALTIME_APP_NAME}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      DB_HOST: supabase-db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_NAME: postgres
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: 4000
+      REPLICATION_MODE: RLS
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-s", "http://127.0.0.1:4000/"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  supabase-storage:
+    image: supabase/storage-api:v1.0.6
+    restart: unless-stopped
+    environment:
+      ANON_KEY: ${ANON_KEY}
+      SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
+      POSTGREST_URL: http://supabase-rest:3000
+      PGRST_JWT_SECRET: ${JWT_SECRET}
+      DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@supabase-db:5432/postgres
+      FILE_STORAGE_BACKEND_PATH: /var/lib/storage
+      STORAGE_BACKEND: file
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+      supabase-rest:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:5000/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  supabase-meta:
+    image: supabase/postgres-meta:v0.83.2
+    restart: unless-stopped
+    environment:
+      PG_META_DB_HOST: supabase-db
+      PG_META_DB_PORT: 5432
+      PG_META_DB_NAME: postgres
+      PG_META_DB_USER: postgres
+      PG_META_DB_PASSWORD: ${POSTGRES_PASSWORD}
+      PG_META_PORT: 8080
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "const net=require('net');const s=net.createConnection({host:'127.0.0.1',port:8080},()=>{s.end();process.exit(0);});s.on('error',()=>process.exit(1));"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  supabase-kong:
+    image: kong:2.8.1
+    restart: unless-stopped
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /etc/kong/kong.yml
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_PROXY_LISTEN: 0.0.0.0:8000
+      KONG_ADMIN_LISTEN: 0.0.0.0:8001
+    volumes:
+      - ./supabase/kong.yml:/etc/kong/kong.yml:ro
+    ports:
+      - "54321:8000"
+    depends_on:
+      supabase-auth:
+        condition: service_started
+      supabase-rest:
+        condition: service_started
+      supabase-realtime:
+        condition: service_started
+      supabase-storage:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "kong health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  supabase-studio:
+    image: supabase/studio:latest
+    restart: unless-stopped
+    environment:
+      SUPABASE_URL: http://supabase-kong:8000
+      SUPABASE_ANON_KEY: ${ANON_KEY}
+      SUPABASE_SERVICE_KEY: ${SERVICE_ROLE_KEY}
+      STUDIO_PG_META_URL: http://supabase-meta:8080
+    ports:
+      - "54323:3000"
+    depends_on:
+      supabase-kong:
+        condition: service_started
+      supabase-meta:
+        condition: service_started
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "const net=require('net');const host=require('os').hostname();const s=net.createConnection({host,port:3000},()=>{s.end();process.exit(0);});s.on('error',()=>process.exit(1));"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  astro:
+    build: ./frontend
+    restart: unless-stopped
+    environment:
+      ASTRO_PUBLIC_CMS_URL: ${ASTRO_PUBLIC_CMS_URL}
+      PUBLIC_SUPABASE_URL: ${PUBLIC_SUPABASE_URL}
+      PUBLIC_SUPABASE_ANON_KEY: ${PUBLIC_SUPABASE_ANON_KEY}
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: sh -c "if [ ! -d node_modules/.bin ]; then npm install; fi; npm run dev"
+    ports:
+      - "4321:4321"
+
+  edge:
+    build: ./docker/edge
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./wordpress:/var/www/html:ro
+    depends_on:
+      - wp
+      - astro
+

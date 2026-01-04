@@ -1,0 +1,29 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getPostBySlug, getPosts } from "../../lib/cms";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const slug = Astro.params.slug;
+const post = slug ? await getPostBySlug(slug) : null;
+---
+
+<Base title={post?.title ?? "Post not found"} description="WordPress post">
+  {post ? (
+    <article class="stitch-card p-8 space-y-6">
+      <div class="space-y-2">
+        <p class="stitch-tag">ARTICLE</p>
+        <h1 class="text-3xl font-semibold">{post.title}</h1>
+        {post.date ? <p class="text-sm text-black/50">{post.date.slice(0, 10)}</p> : null}
+      </div>
+      <div class="max-w-none text-sm leading-relaxed text-black/80" set:html={post.content ?? ""} />
+    </article>
+  ) : (
+    <div class="stitch-card p-6 text-sm text-black/60">
+      We could not find that post yet. Create it in WordPress first.
+    </div>
+  )}
+</Base>

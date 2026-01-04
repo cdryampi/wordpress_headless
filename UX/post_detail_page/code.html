@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post Detail Page - ChatGPT Plus Guide</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur supports-[backdrop-filter]:bg-surface-light/60">
+<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">ChatGPT Plus Guide</h2>
+</div>
+<div class="flex items-center gap-8">
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Guides</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Pricing</a>
+<a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="#">Login</a>
+</div>
+<button class="hidden sm:flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-6 bg-primary hover:bg-blue-600 text-white text-sm font-bold transition-all shadow-md hover:shadow-lg">
+<span>Get Started</span>
+</button>
+<button class="md:hidden text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center text-sm font-medium text-slate-500 dark:text-slate-400 mb-8">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="mx-2 text-slate-300 dark:text-slate-600">/</span>
+<a class="hover:text-primary transition-colors" href="#">Guides</a>
+<span class="mx-2 text-slate-300 dark:text-slate-600">/</span>
+<span class="text-slate-900 dark:text-slate-100 font-semibold">ChatGPT Plugins</span>
+</nav>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Sidebar: Table of Contents (Desktop) -->
+<aside class="hidden lg:block lg:col-span-3">
+<div class="sticky top-24">
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">On this page</h3>
+<ul class="space-y-3 border-l border-slate-200 dark:border-slate-700">
+<li>
+<a class="block pl-4 text-sm font-medium text-primary border-l-2 border-primary -ml-[1px]" href="#intro">Introduction</a>
+</li>
+<li>
+<a class="block pl-4 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#setting-up">1. Setting up your account</a>
+</li>
+<li>
+<a class="block pl-4 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#using-api">2. Using the API</a>
+</li>
+<li>
+<a class="block pl-4 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#advanced-features">3. Advanced Features</a>
+</li>
+<li>
+<a class="block pl-4 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#common-pitfalls">4. Common Pitfalls</a>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Center Column: Article Content -->
+<article class="lg:col-span-6 flex flex-col gap-8">
+<!-- Article Header -->
+<header class="flex flex-col gap-6">
+<h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight tracking-tight">How to Master ChatGPT Plugins</h1>
+<p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Learn how to unlock the full potential of AI with our comprehensive guide to plugins, from installation to advanced workflow integration.
+                        </p>
+<!-- Author Meta -->
+<div class="flex items-center gap-4 py-4 border-y border-slate-100 dark:border-slate-800">
+<div class="h-12 w-12 rounded-full bg-slate-200 overflow-hidden flex-shrink-0">
+<img alt="Portrait of Alex Smith, the author" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx1ZhDVbxL0p0VwtoXQ2jJGadtdmk1_pYL44E9gwqWO8MfCjuw0HpYXL15Or_ZJKfZbHI2EoJrS0wBQxtInrztvSXTbiwOxCLN4kDpxs4URWcyDF5gUuHksDVO76eLCb1UibbiVnthTZF7FsI3xH357cXwZ9iDK67mAWykpETfYln4R-lWLy1VuzYgkqfijnDA_fFMDI16LVcy5lkEQVy9ZiTrhXwy4QJGUBrC4Jj9ymtkne5mRIREKlet65PFFQbdpbZphCJPfnC5"/>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-900 dark:text-white font-bold text-sm">Alex Smith</span>
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span>Oct 24, 2023</span>
+<span>•</span>
+<span>5 min read</span>
+<span>•</span>
+<span class="bg-blue-100 dark:bg-blue-900/30 text-primary px-2 py-0.5 rounded-full font-medium">Updated</span>
+</div>
+</div>
+<div class="ml-auto flex gap-2">
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Table of Contents (Accordion) -->
+<div class="lg:hidden">
+<details class="group rounded-xl border border-slate-200 dark:border-slate-700 bg-surface-light dark:bg-surface-dark overflow-hidden transition-all">
+<summary class="flex cursor-pointer items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50">
+<span class="font-semibold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">list</span>
+                                    Table of Contents
+                                </span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-500">expand_more</span>
+</summary>
+<div class="p-4 bg-white dark:bg-slate-900">
+<ul class="space-y-3 text-sm">
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary" href="#setting-up">1. Setting up your account</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary" href="#using-api">2. Using the API</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary" href="#advanced-features">3. Advanced Features</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary" href="#common-pitfalls">4. Common Pitfalls</a></li>
+</ul>
+</div>
+</details>
+</div>
+<!-- Article Body -->
+<div class="prose prose-slate prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed">
+<p id="intro">
+                            Artificial Intelligence has revolutionized how we work, but the real power of tools like ChatGPT lies in their extensibility. Plugins allow the AI to browse the internet, interpret code, and interact with third-party services.
+                        </p>
+<!-- Note Callout -->
+<div class="my-8 rounded-lg border-l-4 border-primary bg-blue-50 dark:bg-blue-900/20 p-4 flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary mt-0.5">info</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Note for Free Users</h4>
+<p class="text-sm text-slate-700 dark:text-slate-300 m-0">
+                                    Plugin access is currently restricted to ChatGPT Plus subscribers. You can upgrade your account in the settings menu.
+                                </p>
+</div>
+</div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-6 scroll-mt-28" id="setting-up">1. Setting up your account</h2>
+<p>
+                            Before you can start installing plugins, you need to enable beta features in your settings. Navigate to the bottom left of your dashboard, click on your profile, and select "Settings &amp; Beta".
+                        </p>
+<div class="my-8 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700">
+<img class="w-full h-auto object-cover bg-slate-100" data-alt="Screenshot of a generic dashboard settings menu interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkC5t3L_gclV2gx-4mN1OYUyl5Y7WvsgwBgytL40irjaKx1uCjpfl7lJUgf8aD1wWVEZQJMeVmVrWM96c5CW7ciPLLWogkxnusk9kRuqGV_5XMkFu_4AQ_DsEQafccDQUq_lx72E9MEMIneyKw4f_4OJMrexfLpZVp0e38RHh4Krmo5fDFwnn6U5dDblfWaRkufGKPnDMjeYcGDZ8mjWB29AuVYvWToXWh13SPVyClzmGTIkd4iGrOOaXbUtHKSsIJdL4waECD5KrK"/>
+<div class="p-3 text-center text-xs text-slate-500 bg-slate-50 dark:bg-slate-800">Figure 1: Enable Beta Features in Settings</div>
+</div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-6 scroll-mt-28" id="using-api">2. Using the API</h2>
+<p>
+                            Once enabled, you can interact with the API directly. Here is a simple Python example using the <code>openai</code> library to list available models.
+                        </p>
+<!-- Code Block -->
+<div class="my-6 rounded-lg overflow-hidden bg-[#1e293b] text-slate-300 border border-slate-700">
+<div class="flex items-center justify-between px-4 py-2 bg-[#0f172a] border-b border-slate-700">
+<span class="text-xs font-mono text-slate-400">python</span>
+<button class="flex items-center gap-1 text-xs text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+                                    Copy
+                                </button>
+</div>
+<div class="p-4 overflow-x-auto font-mono text-sm leading-6">
+<pre><code>import openai
+
+openai.api_key = "YOUR_API_KEY"
+
+response = openai.Model.list()
+for model in response['data']:
+    print(model.id)</code></pre>
+</div>
+</div>
+<!-- Tip Callout -->
+<div class="my-8 rounded-lg border-l-4 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-4 flex gap-4 items-start">
+<span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 mt-0.5">lightbulb</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Pro Tip</h4>
+<p class="text-sm text-slate-700 dark:text-slate-300 m-0">
+                                    Always store your API keys in environment variables rather than hardcoding them into your scripts.
+                                </p>
+</div>
+</div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-6 scroll-mt-28" id="advanced-features">3. Advanced Features</h2>
+<p>
+                            For more complex workflows, you can chain multiple plugins together. For example, use the Browsing plugin to find data, and the Code Interpreter to visualize it.
+                        </p>
+<!-- Warning Callout -->
+<div class="my-8 rounded-lg border-l-4 border-amber-500 bg-amber-50 dark:bg-amber-900/20 p-4 flex gap-4 items-start">
+<span class="material-symbols-outlined text-amber-600 dark:text-amber-400 mt-0.5">warning</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Warning</h4>
+<p class="text-sm text-slate-700 dark:text-slate-300 m-0">
+                                    Be careful when granting plugins access to sensitive personal data. Always review the privacy policy of third-party plugins.
+                                </p>
+</div>
+</div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-6 scroll-mt-28" id="common-pitfalls">4. Common Pitfalls</h2>
+<p>
+                            The most common issue users face is context limit errors. When using multiple plugins, the token count can increase rapidly. Ensure you are monitoring your usage to avoid unexpected interruptions.
+                        </p>
+</div>
+<!-- Tags -->
+<div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm rounded-full font-medium hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer transition-colors">#ChatGPT</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm rounded-full font-medium hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer transition-colors">#AI</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm rounded-full font-medium hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer transition-colors">#Plugins</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm rounded-full font-medium hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer transition-colors">#Tutorial</span>
+</div>
+</article>
+<!-- Right Sidebar: Sticky CTA (Desktop) -->
+<aside class="hidden lg:block lg:col-span-3">
+<div class="sticky top-24 space-y-6">
+<!-- CTA Card -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 shadow-md border border-slate-200 dark:border-slate-700 flex flex-col gap-4">
+<div class="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg">Unlock the full power of AI</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Get access to GPT-4, DALL-E 3, and advanced data analysis tools.</p>
+</div>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-500 text-[18px]">check_circle</span>
+                                    Faster response times
+                                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-500 text-[18px]">check_circle</span>
+                                    Priority access
+                                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-500 text-[18px]">check_circle</span>
+                                    Plugin store access
+                                </li>
+</ul>
+<button class="w-full py-3 px-4 bg-primary hover:bg-blue-600 text-white font-bold rounded-lg shadow-sm transition-all text-sm mt-2">
+                                Upgrade to Plus
+                            </button>
+<p class="text-center text-xs text-slate-400">Cancel anytime.</p>
+</div>
+<!-- Newsletter Mini -->
+<div class="bg-blue-50 dark:bg-blue-900/10 rounded-xl p-6 border border-blue-100 dark:border-blue-900/30">
+<h4 class="font-bold text-slate-900 dark:text-white text-sm mb-2">Weekly AI Digest</h4>
+<p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Join 50,000+ readers.</p>
+<div class="flex gap-2">
+<input class="w-full rounded-md border-slate-200 dark:border-slate-700 text-sm px-3 py-2 bg-white dark:bg-slate-800" placeholder="Email" type="email"/>
+<button class="bg-slate-900 dark:bg-slate-700 text-white rounded-md px-3 hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Related Posts Section -->
+<section class="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">Related Articles</h3>
+<a class="text-primary text-sm font-medium hover:underline flex items-center gap-1" href="#">
+                        View all <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Related Card 1 -->
+<a class="group flex flex-col gap-4" href="#">
+<div class="aspect-video w-full rounded-xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Abstract digital network visualization with blue nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEdOTBa_TSJmodggKCgaCdg7unq20XzYQF8PAbS_vXxwVskqntY-qM9kZ849R2cJ8SS7991pPj_UPTuTlwBgh23z_EikOe0n_iTa6us_-wuyUt95FpAOUSzS9nGIIwckfm-OiOZLvEACzkLYWxDdg_KWlcLopoOUtUSOPg-i16-9mIwzCMZ6DVe16Yg3NeoQ45RCKmbZT8UYdvNMVt50buSFisiNvKBpue2nmcEgXC3G3Vf-dsAMtjD2GYHpSR52Vgox8jaTTmnwuU"/>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-bold text-primary uppercase tracking-wide">Tutorial</span>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2">Building your first AI Agent with Python</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">A step-by-step guide to creating autonomous agents using the OpenAI API.</p>
+</div>
+</a>
+<!-- Related Card 2 -->
+<a class="group flex flex-col gap-4" href="#">
+<div class="aspect-video w-full rounded-xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Colorful abstract gradient waves representing data flow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhP_Q8aiN_05E-suT8OIgvcch3p6DLEJ3xoSrtqhk6arTRzqM53PWu7JQT2snijEOAdg1umsjM3S-2ISJFtokX4iRk9GhbMajAFF2YTtnZkzjvOtaVlbJEZP5L6CxWJd9MTsL6BlYcf6HdAHPlAsF6mIkPH1v3ZSEVdTTLeXrnnytfAqbsf3bJ-_cMNomc1G7qzIzm8i6Q5h10E8GC4V74fCBKylpyM0svtc5Q3h2xUxYkAvkg_jBxQwWEX64XHj8Ril15mn23cWZr"/>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-bold text-purple-600 uppercase tracking-wide">Analysis</span>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2">The Ethics of Large Language Models</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Exploring the bias, safety, and societal impact of modern AI systems.</p>
+</div>
+</a>
+<!-- Related Card 3 -->
+<a class="group flex flex-col gap-4" href="#">
+<div class="aspect-video w-full rounded-xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Close up of computer code on a monitor screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDRkeRKKa7vhO5CLygTpY--qgH8jxGMVl2uhOjpjl7JXeEU99X5-CM9pkRZ18jVpFaSXPeMi8FRrCcpk49W7Bv4abvcZJEjNUaq5pkhYK-cu5mKrO2POU2cmsV24TYm0EtMHF5LtRS_iEGthk3HTraXMdeJWDFrXCuhiik3_eSa82O_SJNPtk7z4ucK-oLsbqo6H2KV7-ZNf8idDC3oVBYVX5q_PSw6byJSiNQ5Kv5Jqbn4wfeTcsnX8NOoKyp884b57WW8LjdDFd5"/>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-bold text-emerald-600 uppercase tracking-wide">Tips</span>
+<h4 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2">10 Prompt Engineering Hacks</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Get better results from ChatGPT with these proven prompting techniques.</p>
+</div>
+</a>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-slate-900 dark:text-white">
+<span class="material-symbols-outlined text-primary">smart_toy</span>
+<span class="font-bold">ChatGPT Plus Guide</span>
+</div>
+<div class="flex gap-8 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Contact</a>
+</div>
+<div class="text-sm text-slate-400">
+                © 2023 All rights reserved.
+            </div>
+</div>
+</footer>
+<!-- Mobile Sticky CTA Bar -->
+<div class="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-40">
+<div class="flex items-center justify-between gap-4 max-w-xl mx-auto">
+<div class="flex flex-col">
+<span class="font-bold text-slate-900 dark:text-white text-sm">Upgrade to Plus</span>
+<span class="text-xs text-slate-500">Access GPT-4 &amp; plugins</span>
+</div>
+<button class="bg-primary hover:bg-blue-600 text-white text-sm font-bold py-2 px-6 rounded-lg shadow-sm">
+                Upgrade
+            </button>
+</div>
+</div>
+</body></html>
