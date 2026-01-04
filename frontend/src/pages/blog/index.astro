@@ -1,44 +1,15 @@
 ---
-import Base from "../../layouts/Base.astro";
-import { getPosts } from "../../lib/cms";
-
-const posts = await getPosts();
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon";
 ---
 
-<Base title="Stitchline Blog" description="Headless posts from WordPress">
-  <section class="space-y-6">
-    <div class="flex flex-wrap items-end justify-between gap-4">
-      <div>
-        <p class="stitch-tag">WPGraphQL</p>
-        <h1 class="text-3xl font-semibold">The Headless Journal</h1>
-      </div>
-      <p class="text-sm text-black/60 max-w-md">
-        Posts are delivered from WordPress via GraphQL and rendered by Astro.
-      </p>
-    </div>
-
-    {posts.length === 0 ? (
-      <div class="stitch-card p-6 text-sm text-black/60">
-        No posts yet. Add one in WordPress to see it here.
-      </div>
-    ) : (
-      <div class="grid gap-6 md:grid-cols-2">
-        {posts.map((post, index) => (
-          <a
-            class="stitch-card p-6 space-y-3 fade-rise"
-            style={`animation-delay: ${index * 0.05}s;`}
-            href={`/blog/${post.slug}`}
-          >
-            <p class="text-sm text-black/50">{post.date?.slice(0, 10)}</p>
-            <h2 class="text-xl font-semibold">{post.title}</h2>
-            {post.excerpt ? (
-              <div class="text-sm text-black/70" set:html={post.excerpt} />
-            ) : (
-              <p class="text-sm text-black/70">Open to read more.</p>
-            )}
-          </a>
-        ))}
-      </div>
-    )}
-  </section>
-</Base>
+<BaseLayout title="Guides moved" description="Guides now live under /guides." bodyClass="bg-background-light text-text-light font-display">
+  <main class="max-w-3xl mx-auto px-6 py-20">
+    <h1 class="text-3xl font-bold mb-4">Guides moved</h1>
+    <p class="text-text-light-secondary mb-6">The guides are now available under /guides.</p>
+    <a class="inline-flex items-center gap-2 text-primary font-semibold" href="/guides">
+      Go to Guides
+      <Icon name="arrow_forward" className="text-sm" />
+    </a>
+  </main>
+</BaseLayout>

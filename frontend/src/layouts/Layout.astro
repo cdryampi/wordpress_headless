@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Stitch Headless",
+  description = "Astro + WordPress + Supabase starter",
+  bodyClass = ""
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class={bodyClass}>
+    <div class="bg-thread"></div>
+    <div class="mx-auto max-w-6xl px-6 py-10 relative">
+      <header class="flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="stitch-tag">HEADLESS</span>
+          <span class="text-lg font-semibold tracking-tight">Stitchline</span>
+        </div>
+        <nav class="flex items-center gap-6 text-sm">
+          <a href="/">Home</a>
+          <a href="/blog">Blog</a>
+          <a href="/wp-admin" rel="nofollow">WP Admin</a>
+        </nav>
+      </header>
+
+      <main class="relative z-10 py-12">
+        <slot />
+      </main>
+
+      <footer class="border-t border-black/10 pt-6 text-sm text-black/60">
+        Built for WPGraphQL + Supabase. Routed by a single edge Nginx.
+      </footer>
+    </div>
+  </body>
+</html>

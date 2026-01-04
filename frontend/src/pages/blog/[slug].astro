@@ -1,29 +1,17 @@
 ---
-import Base from "../../layouts/Base.astro";
-import { getPostBySlug, getPosts } from "../../lib/cms";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon";
 
-export async function getStaticPaths() {
-  const posts = await getPosts();
-  return posts.map((post) => ({ params: { slug: post.slug } }));
-}
-
-const slug = Astro.params.slug;
-const post = slug ? await getPostBySlug(slug) : null;
+const { slug } = Astro.params;
 ---
 
-<Base title={post?.title ?? "Post not found"} description="WordPress post">
-  {post ? (
-    <article class="stitch-card p-8 space-y-6">
-      <div class="space-y-2">
-        <p class="stitch-tag">ARTICLE</p>
-        <h1 class="text-3xl font-semibold">{post.title}</h1>
-        {post.date ? <p class="text-sm text-black/50">{post.date.slice(0, 10)}</p> : null}
-      </div>
-      <div class="max-w-none text-sm leading-relaxed text-black/80" set:html={post.content ?? ""} />
-    </article>
-  ) : (
-    <div class="stitch-card p-6 text-sm text-black/60">
-      We could not find that post yet. Create it in WordPress first.
-    </div>
-  )}
-</Base>
+<BaseLayout title="Guide moved" description="Guides now live under /guides." bodyClass="bg-background-light text-text-light font-display">
+  <main class="max-w-3xl mx-auto px-6 py-20">
+    <h1 class="text-3xl font-bold mb-4">Guide moved</h1>
+    <p class="text-text-light-secondary mb-6">This guide now lives under /guides.</p>
+    <a class="inline-flex items-center gap-2 text-primary font-semibold" href={`/guides/${slug}`}>
+      Go to the guide
+      <Icon name="arrow_forward" className="text-sm" />
+    </a>
+  </main>
+</BaseLayout>

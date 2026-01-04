@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "ChatGPT Plus Guide",
+  description = "Guides, workflows, and feature deep dives for ChatGPT Plus.",
+  bodyClass = "",
+  htmlClass = "light"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class={htmlClass}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class={bodyClass}>
+    <slot />
+  </body>
+</html>

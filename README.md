@@ -19,6 +19,7 @@ docker compose up --build
 ## URLs
 
 - Site: http://localhost:8080
+- Guides: http://localhost:8080/guides
 - WordPress admin: http://localhost:8080/wp-admin
 - WPGraphQL: http://localhost:8080/graphql
 - Supabase Kong API: http://localhost:54321
@@ -35,6 +36,14 @@ If you want to remove persisted data manually:
 
 ```bash
 rm -rf volumes/db_wp volumes/supabase_db
+```
+
+## GraphQL verification
+
+```bash
+curl -s http://localhost:8080/graphql \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"{ posts(first:2){ nodes{ title slug featuredImage{ node{ sourceUrl } } } } }"}'
 ```
 
 ## Notes

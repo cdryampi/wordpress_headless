@@ -1,0 +1,297 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon";
+import { getCategories, getPosts } from "../../lib/cms";
+
+const posts = await getPosts(8);
+const [featured, ...latest] = posts;
+const categories = await getCategories();
+
+const categoryOrder = [
+  "getting-started",
+  "advanced-features",
+  "images",
+  "files-analysis",
+  "voice-mode",
+  "deep-research",
+  "custom-gpts"
+];
+
+const categoryIcons = {
+  "getting-started": "rocket_launch",
+  "advanced-features": "tune",
+  images: "palette",
+  "files-analysis": "analytics",
+  "voice-mode": "mic",
+  "deep-research": "travel_explore",
+  "custom-gpts": "construction"
+};
+
+const categoryLabelClasses = {
+  "getting-started": "text-primary",
+  "advanced-features": "text-amber-600",
+  images: "text-purple-600",
+  "files-analysis": "text-amber-600",
+  "voice-mode": "text-green-600",
+  "deep-research": "text-primary",
+  "custom-gpts": "text-red-500"
+};
+
+const orderedCategories = categoryOrder
+  .map((slug) => categories.find((item) => item.slug === slug))
+  .filter(Boolean);
+
+const popularReads = posts.slice(0, 3);
+
+const formatDate = (value) => {
+  if (!value) return "";
+  return new Date(value).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+};
+
+const getReadingTime = (value) => {
+  if (!value) return 3;
+  const text = value.replace(/<[^>]+>/g, " ");
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(3, Math.round(words / 180));
+};
+---
+
+<BaseLayout
+  title="ChatGPT Plus Guide - Guides"
+  description="Featured guide and the latest ChatGPT Plus walkthroughs."
+  bodyClass="bg-[#f6f7f8] dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-display min-h-screen flex flex-col transition-colors duration-200"
+>
+  <header class="sticky top-0 z-50 w-full bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-4">
+          <a class="flex items-center gap-3 text-text-main-light dark:text-text-main-dark hover:opacity-80 transition-opacity" href="/">
+            <div class="size-8 text-primary flex items-center justify-center">
+              <Icon name="smart_toy" className="text-[32px]" />
+            </div>
+            <h1 class="text-xl font-bold tracking-tight hidden sm:block">ChatGPT Plus Guide</h1>
+          </a>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/">Home</a>
+          <a class="text-sm font-medium text-primary" href="/guides">Guides</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/plus">About</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/plus">Resources</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <div class="relative hidden sm:block">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-text-sec-light dark:text-text-sec-dark">
+              <Icon name="search" className="text-[20px]" />
+            </span>
+            <input
+              class="w-64 py-2 pl-10 pr-4 bg-gray-100 dark:bg-gray-800 border-none rounded-full text-sm focus:ring-2 focus:ring-primary placeholder-text-sec-light dark:placeholder-text-sec-dark transition-all"
+              placeholder="Search guides..."
+              type="text"
+            />
+          </div>
+          <button class="bg-primary hover:bg-primary-dark text-white text-sm font-bold py-2 px-5 rounded-full transition-colors shadow-sm shadow-primary/20" type="button">
+            Subscribe
+          </button>
+          <button class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-text-main-light dark:text-text-main-dark" type="button">
+            <Icon name="menu" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+    <div class="flex flex-col lg:flex-row gap-10">
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold">Featured Guide</h2>
+          <Icon name="auto_awesome" className="text-primary" />
+        </div>
+
+        {featured ? (
+          <article class="group relative flex flex-col md:flex-row items-stretch bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden mb-12 border border-gray-100 dark:border-gray-800">
+            <div class="w-full md:w-2/5 h-64 md:h-auto bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={`background-image: url('${featured.featuredImage?.node?.sourceUrl ?? ""}')`}
+              ></div>
+            </div>
+            <div class="flex-1 p-6 md:p-8 flex flex-col justify-center">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="bg-primary/10 text-primary text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                  {featured.categories?.nodes?.[0]?.name ?? "Guide"}
+                </span>
+                <span class="text-text-sec-light dark:text-text-sec-dark text-xs">{formatDate(featured.date)}</span>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold leading-tight mb-3 text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">
+                <a href={`/guides/${featured.slug}`}>{featured.title}</a>
+              </h3>
+              <div
+                class="text-text-sec-light dark:text-text-sec-dark text-base md:text-lg leading-relaxed mb-6 line-clamp-2 md:line-clamp-3"
+                set:html={featured.excerpt ?? ""}
+              ></div>
+              <div class="mt-auto pt-4 flex items-center gap-3">
+                <div class="size-8 rounded-full bg-gray-300 dark:bg-gray-600 overflow-hidden">
+                  <svg class="w-full h-full text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                  </svg>
+                </div>
+                <div class="text-sm">
+                  <p class="font-semibold text-text-main-light dark:text-text-main-dark">{featured.author?.node?.name ?? "Plus Guide"}</p>
+                  <p class="text-text-sec-light dark:text-text-sec-dark text-xs">AI Research Lead</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        ) : (
+          <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-2xl border border-gray-100 dark:border-gray-800 text-sm">
+            No featured guide yet. Publish your first post to see it here.
+          </div>
+        )}
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+          <h2 class="text-2xl font-bold">Latest Guides</h2>
+          <div class="flex gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide sm:hidden">
+            <button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-primary text-white text-sm font-medium" type="button">All</button>
+            <button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-text-sec-light dark:text-text-sec-dark text-sm font-medium" type="button">Voice Mode</button>
+            <button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-text-sec-light dark:text-text-sec-dark text-sm font-medium" type="button">DALL-E 3</button>
+          </div>
+        </div>
+
+        {latest.length === 0 ? (
+          <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-2xl border border-gray-100 dark:border-gray-800 text-sm">
+            No guides yet. Create one in WordPress to populate this feed.
+          </div>
+        ) : (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {latest.map((post) => (
+              <article class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 group h-full">
+                <div class="aspect-video w-full bg-gray-200 dark:bg-gray-700 rounded-t-2xl overflow-hidden relative">
+                  <div
+                    class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                    style={`background-image: url('${post.featuredImage?.node?.sourceUrl ?? ""}')`}
+                  ></div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                  <div class="flex items-center justify-between mb-3">
+                    <span class={`text-xs font-semibold uppercase tracking-wide ${categoryLabelClasses[post.categories?.nodes?.[0]?.slug ?? "getting-started"] ?? "text-primary"}`}>
+                      {post.categories?.nodes?.[0]?.name ?? "Guide"}
+                    </span>
+                    <span class="text-xs text-text-sec-light dark:text-text-sec-dark">{getReadingTime(post.excerpt ?? "")} min read</span>
+                  </div>
+                  <h3 class="text-xl font-bold mb-2 text-text-main-light dark:text-text-main-dark leading-snug group-hover:text-primary transition-colors">
+                    <a href={`/guides/${post.slug}`}>{post.title}</a>
+                  </h3>
+                  <div
+                    class="text-text-sec-light dark:text-text-sec-dark text-sm leading-relaxed mb-4 flex-1"
+                    set:html={post.excerpt ?? ""}
+                  ></div>
+                  <div class="flex items-center gap-2 pt-2 border-t border-gray-100 dark:border-gray-800 mt-auto">
+                    <Icon name="schedule" className="text-base text-text-sec-light" />
+                    <span class="text-xs text-text-sec-light dark:text-text-sec-dark">{formatDate(post.date)}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+
+        <div class="mt-12 flex justify-center">
+          <button class="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 dark:border-gray-700 bg-surface-light dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm font-semibold text-text-main-light dark:text-text-main-dark" type="button">
+            Load More Articles
+            <Icon name="expand_more" className="text-lg" />
+          </button>
+        </div>
+      </div>
+
+      <aside class="w-full lg:w-80 flex-shrink-0 space-y-8">
+        <div class="bg-surface-light dark:bg-surface-dark p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm relative overflow-hidden group">
+          <div class="absolute -top-10 -right-10 size-32 bg-primary/5 rounded-full group-hover:bg-primary/10 transition-colors"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-2 mb-3 text-primary">
+              <Icon name="mail" />
+              <span class="text-xs font-bold uppercase tracking-wider">Newsletter</span>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Weekly AI Insights</h3>
+            <p class="text-sm text-text-sec-light dark:text-text-sec-dark mb-4">
+              Get the latest prompts, guide updates, and AI news delivered to your inbox every Friday.
+            </p>
+            <form class="space-y-3" onsubmit="event.preventDefault();">
+              <input
+                class="w-full px-4 py-2.5 rounded-xl bg-background-light dark:bg-background-dark border-transparent focus:border-primary focus:ring-0 text-sm transition-all"
+                placeholder="you@example.com"
+                required
+                type="email"
+              />
+              <button class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-dark text-white text-sm font-bold transition-colors" type="submit">
+                Subscribe Free
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="bg-surface-light dark:bg-surface-dark rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+          <div class="p-5 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+            <h3 class="font-bold text-lg">Topics</h3>
+            <a class="text-xs text-primary font-medium hover:underline" href="/guides">View All</a>
+          </div>
+          <div class="p-2">
+            <nav class="flex flex-col">
+              {orderedCategories.map((category, index) => (
+                <a
+                  class={`flex items-center justify-between px-4 py-3 rounded-xl ${index === 0 ? "bg-primary/5 text-primary font-medium" : "text-text-sec-light dark:text-text-sec-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"}`}
+                  href="/guides"
+                >
+                  <div class="flex items-center gap-3">
+                    <Icon name={categoryIcons[category.slug] ?? "rocket_launch"} className="text-[20px]" />
+                    <span class="text-sm">{category.name}</span>
+                  </div>
+                  <span class={`text-xs ${index === 0 ? "bg-white dark:bg-gray-800 px-2 py-0.5 rounded-md shadow-sm" : "bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-md"}`}>
+                    {category.count ?? 0}
+                  </span>
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
+
+        <div class="bg-surface-light dark:bg-surface-dark rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+          <div class="p-5 border-b border-gray-100 dark:border-gray-800">
+            <h3 class="font-bold text-lg">Popular Reads</h3>
+          </div>
+          <div class="divide-y divide-gray-100 dark:divide-gray-800">
+            {popularReads.map((post, index) => (
+              <a class="flex items-start gap-4 p-5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group" href={`/guides/${post.slug}`}>
+                <span class="text-2xl font-bold text-gray-200 dark:text-gray-700 group-hover:text-primary transition-colors">{index + 1}</span>
+                <div>
+                  <h4 class="text-sm font-semibold text-text-main-light dark:text-text-main-dark mb-1 group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h4>
+                  <p class="text-xs text-text-sec-light dark:text-text-sec-dark">{post.categories?.nodes?.[0]?.name ?? "Guide"}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 py-12 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2 text-text-sec-light dark:text-text-sec-dark">
+        <Icon name="smart_toy" className="text-primary" />
+        <span class="text-sm font-medium">(c) 2024 ChatGPT Plus Guide</span>
+      </div>
+      <div class="flex gap-6 text-sm text-text-sec-light dark:text-text-sec-dark font-medium">
+        <a class="hover:text-primary transition-colors" href="/plus">Privacy Policy</a>
+        <a class="hover:text-primary transition-colors" href="/plus">Terms of Service</a>
+        <a class="hover:text-primary transition-colors" href="/plus">Contact</a>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

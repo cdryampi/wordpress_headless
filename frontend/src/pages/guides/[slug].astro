@@ -1,0 +1,321 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon";
+import { getPostBySlug, getPosts } from "../../lib/cms";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const slug = Astro.params.slug;
+const post = slug ? await getPostBySlug(slug) : null;
+const relatedPosts = (await getPosts(6)).filter((item) => item.slug !== slug).slice(0, 3);
+
+const formatDate = (value) => {
+  if (!value) return "";
+  return new Date(value).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+};
+
+const extractToc = (html) => {
+  if (!html) return [];
+  const matches = Array.from(html.matchAll(/<h2[^>]*id="([^"]+)"[^>]*>(.*?)<\/h2>/gi));
+  return matches.map((match) => ({
+    id: match[1],
+    title: match[2].replace(/<[^>]+>/g, "").trim()
+  }));
+};
+
+const toc = extractToc(post?.content ?? "");
+const featuredImage = post?.featuredImage?.node?.sourceUrl ?? "";
+---
+
+<BaseLayout
+  title={post?.title ?? "Guide"}
+  description={post?.excerpt?.replace(/<[^>]+>/g, "") ?? "ChatGPT Plus Guide"}
+  bodyClass="bg-[#f6f7f8] dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col"
+>
+  <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur supports-[backdrop-filter]:bg-surface-light/60">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 text-slate-900 dark:text-white">
+        <div class="size-8 text-primary">
+          <Icon name="smart_toy" className="text-3xl" />
+        </div>
+        <h2 class="text-lg font-bold leading-tight tracking-tight">ChatGPT Plus Guide</h2>
+      </div>
+      <div class="flex items-center gap-8">
+        <div class="hidden md:flex items-center gap-6">
+          <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="/guides">
+            Guides
+          </a>
+          <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="/plus">
+            Pricing
+          </a>
+          <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors" href="/wp-admin">
+            Login
+          </a>
+        </div>
+        <a class="hidden sm:flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-6 bg-primary hover:bg-blue-600 text-white text-sm font-bold transition-all shadow-md hover:shadow-lg" href="/plus">
+          <span>Get Started</span>
+        </a>
+        <button class="md:hidden text-slate-600 dark:text-slate-300" type="button">
+          <Icon name="menu" />
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+      <nav class="flex items-center text-sm font-medium text-slate-500 dark:text-slate-400 mb-8">
+        <a class="hover:text-primary transition-colors" href="/">Home</a>
+        <span class="mx-2 text-slate-300 dark:text-slate-600">/</span>
+        <a class="hover:text-primary transition-colors" href="/guides">Guides</a>
+        <span class="mx-2 text-slate-300 dark:text-slate-600">/</span>
+        <span class="text-slate-900 dark:text-slate-100 font-semibold">{post?.title ?? "Guide"}</span>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <aside class="hidden lg:block lg:col-span-3">
+          <div class="sticky top-24">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">On this page</h3>
+            <ul class="space-y-3 border-l border-slate-200 dark:border-slate-700">
+              {toc.map((item, index) => (
+                <li>
+                  <a
+                    data-toc-link={item.id}
+                    class={`block pl-4 text-sm font-medium ${index === 0 ? "text-primary border-l-2 border-primary -ml-[1px]" : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors"}`}
+                    href={`#${item.id}`}
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
+        <article class="lg:col-span-6 flex flex-col gap-8">
+          <header class="flex flex-col gap-6">
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight tracking-tight">
+              {post?.title ?? "Guide"}
+            </h1>
+            <p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+              {post?.excerpt?.replace(/<[^>]+>/g, "") ?? ""}
+            </p>
+            <div class="flex items-center gap-4 py-4 border-y border-slate-100 dark:border-slate-800">
+              <div class="h-12 w-12 rounded-full bg-slate-200 overflow-hidden flex-shrink-0"></div>
+              <div class="flex flex-col">
+                <span class="text-slate-900 dark:text-white font-bold text-sm">{post?.author?.node?.name ?? "Plus Guide"}</span>
+                <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                  <span>{formatDate(post?.date)}</span>
+                  <span>-</span>
+                  <span>5 min read</span>
+                  <span>-</span>
+                  <span class="bg-blue-100 dark:bg-blue-900/30 text-primary px-2 py-0.5 rounded-full font-medium">Updated</span>
+                </div>
+              </div>
+              <div class="ml-auto flex gap-2">
+                <button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors" type="button">
+                  <Icon name="share" className="text-[20px]" />
+                </button>
+                <button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors" type="button">
+                  <Icon name="bookmark" className="text-[20px]" />
+                </button>
+              </div>
+            </div>
+          </header>
+
+          <div class="lg:hidden">
+            <details class="group rounded-xl border border-slate-200 dark:border-slate-700 bg-surface-light dark:bg-surface-dark overflow-hidden transition-all">
+              <summary class="flex cursor-pointer items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50">
+                <span class="font-semibold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                  <Icon name="list" className="text-primary" />
+                  Table of Contents
+                </span>
+                <Icon name="expand_more" className="transition-transform group-open:rotate-180 text-slate-500" />
+              </summary>
+              <div class="p-4 bg-white dark:bg-slate-900">
+                <ul class="space-y-3 text-sm">
+                  {toc.map((item) => (
+                    <li>
+                      <a class="text-slate-600 dark:text-slate-400 hover:text-primary" href={`#${item.id}`}>
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          {featuredImage ? (
+            <div class="my-2 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700">
+              <img class="w-full h-auto object-cover bg-slate-100" alt={post?.featuredImage?.node?.altText ?? post?.title ?? "Guide image"} src={featuredImage} />
+              <div class="p-3 text-center text-xs text-slate-500 bg-slate-50 dark:bg-slate-800">Featured guide visual</div>
+            </div>
+          ) : null}
+
+          <div class="prose prose-slate prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed" set:html={post?.content ?? ""}></div>
+
+          {post?.tags?.nodes?.length ? (
+            <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-2">
+              {post.tags.nodes.map((tag) => (
+                <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm rounded-full font-medium hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer transition-colors">
+                  #{tag.name}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </article>
+
+        <aside class="hidden lg:block lg:col-span-3">
+          <div class="sticky top-24 space-y-6">
+            <div class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 shadow-md border border-slate-200 dark:border-slate-700 flex flex-col gap-4">
+              <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-lg">
+                <Icon name="auto_awesome" />
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg">Unlock the full power of AI</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+                  Get access to GPT-4, DALL-E 3, and advanced data analysis tools.
+                </p>
+              </div>
+              <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                <li class="flex items-center gap-2">
+                  <Icon name="check_circle" className="text-green-500 text-[18px]" />
+                  Faster response times
+                </li>
+                <li class="flex items-center gap-2">
+                  <Icon name="check_circle" className="text-green-500 text-[18px]" />
+                  Priority access
+                </li>
+                <li class="flex items-center gap-2">
+                  <Icon name="check_circle" className="text-green-500 text-[18px]" />
+                  Plugin store access
+                </li>
+              </ul>
+              <a class="w-full py-3 px-4 bg-primary hover:bg-blue-600 text-white font-bold rounded-lg shadow-sm transition-all text-sm mt-2 text-center" href="/plus">
+                Upgrade to Plus
+              </a>
+              <p class="text-center text-xs text-slate-400">Cancel anytime.</p>
+            </div>
+
+            <div class="bg-blue-50 dark:bg-blue-900/10 rounded-xl p-6 border border-blue-100 dark:border-blue-900/30">
+              <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-2">Weekly AI Digest</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Join 50,000+ readers.</p>
+              <div class="flex gap-2">
+                <input class="w-full rounded-md border-slate-200 dark:border-slate-700 text-sm px-3 py-2 bg-white dark:bg-slate-800" placeholder="Email" type="email" />
+                <button class="bg-slate-900 dark:bg-slate-700 text-white rounded-md px-3 hover:bg-slate-800 transition-colors" type="button">
+                  <Icon name="arrow_forward" className="text-[18px]" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Related Articles</h3>
+          <a class="text-primary text-sm font-medium hover:underline flex items-center gap-1" href="/guides">
+            View all <Icon name="arrow_forward" className="text-[16px]" />
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {relatedPosts.map((item) => (
+            <a class="group flex flex-col gap-4" href={`/guides/${item.slug}`}>
+              <div class="aspect-video w-full rounded-xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative">
+                {item.featuredImage?.node?.sourceUrl ? (
+                  <img
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    alt={item.featuredImage?.node?.altText ?? item.title}
+                    src={item.featuredImage.node.sourceUrl}
+                  />
+                ) : null}
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="text-xs font-bold text-primary uppercase tracking-wide">{item.categories?.nodes?.[0]?.name ?? "Guide"}</span>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2">
+                  {item.title}
+                </h4>
+                <div
+                  class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2"
+                  set:html={item.excerpt ?? ""}
+                ></div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2 text-slate-900 dark:text-white">
+        <Icon name="smart_toy" className="text-primary" />
+        <span class="font-bold">ChatGPT Plus Guide</span>
+      </div>
+      <div class="flex gap-8 text-sm text-slate-500 dark:text-slate-400">
+        <a class="hover:text-primary" href="/plus">Privacy Policy</a>
+        <a class="hover:text-primary" href="/plus">Terms of Service</a>
+        <a class="hover:text-primary" href="/plus">Contact</a>
+      </div>
+      <div class="text-sm text-slate-400">(c) 2023 All rights reserved.</div>
+    </div>
+  </footer>
+
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-40">
+    <div class="flex items-center justify-between gap-4 max-w-xl mx-auto">
+      <div class="flex flex-col">
+        <span class="font-bold text-slate-900 dark:text-white text-sm">Upgrade to Plus</span>
+        <span class="text-xs text-slate-500">Access GPT-4 & plugins</span>
+      </div>
+      <a class="bg-primary hover:bg-blue-600 text-white text-sm font-bold py-2 px-6 rounded-lg shadow-sm" href="/plus">
+        Upgrade
+      </a>
+    </div>
+  </div>
+
+  <script is:inline>
+    const tocLinks = Array.from(document.querySelectorAll('[data-toc-link]'));
+    const activeClass = 'block pl-4 text-sm font-medium text-primary border-l-2 border-primary -ml-[1px]';
+    const inactiveClass = 'block pl-4 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors';
+
+    const setActive = (id) => {
+      tocLinks.forEach((link) => {
+        if (link.getAttribute('data-toc-link') === id) {
+          link.className = activeClass;
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.className = inactiveClass;
+          link.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    const headings = tocLinks
+      .map((link) => document.getElementById(link.getAttribute('data-toc-link')))
+      .filter(Boolean);
+
+    if (headings.length) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActive(entry.target.id);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -70% 0px', threshold: 0.1 }
+      );
+
+      headings.forEach((heading) => observer.observe(heading));
+    }
+  </script>
+</BaseLayout>

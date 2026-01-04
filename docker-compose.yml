@@ -31,6 +31,7 @@ services:
       WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
     volumes:
       - ./wordpress:/var/www/html
+      - ./UX:/seed/ux:ro
     depends_on:
       db_wp:
         condition: service_healthy
