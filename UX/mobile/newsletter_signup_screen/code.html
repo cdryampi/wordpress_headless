@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Newsletter Signup</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ecec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#102222",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a3333",
+                        "text-light": "#0d1b1b",
+                        "text-dark": "#f0fdfd",
+                        "secondary-text-light": "#5c7c7c",
+                        "secondary-text-dark": "#8aabab",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 15px -3px rgba(19, 236, 236, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased transition-colors duration-200">
+<!-- Main Container -->
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between p-4 pb-2 z-10">
+<!-- Back Button (Optional) -->
+<button class="flex size-10 items-center justify-center rounded-full text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h2 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight tracking-[-0.015em]">Stay Updated</h2>
+<!-- Close Button -->
+<button class="flex size-10 items-center justify-center rounded-full text-primary font-bold hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+</header>
+<!-- Content Area -->
+<main class="flex-1 flex flex-col items-center justify-center p-6 w-full max-w-md mx-auto relative z-0">
+<!-- Background Decoration Blobs -->
+<div class="absolute top-10 left-[-20%] w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+<div class="absolute bottom-10 right-[-20%] w-64 h-64 bg-purple-400/10 rounded-full blur-3xl -z-10"></div>
+<!-- Newsletter Card -->
+<div class="w-full bg-card-light dark:bg-card-dark rounded-2xl shadow-soft dark:shadow-none dark:border dark:border-white/5 p-8 flex flex-col items-center text-center transition-all duration-300">
+<!-- Icon/Illustration -->
+<div class="mb-6 relative">
+<div class="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
+<div class="relative bg-gradient-to-br from-primary/10 to-primary/30 dark:from-primary/20 dark:to-primary/5 size-20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">mark_email_unread</span>
+</div>
+</div>
+<!-- Headline -->
+<h1 class="text-text-light dark:text-text-dark tracking-tight text-[28px] font-bold leading-tight mb-3">
+                    Unlock AI Potential
+                </h1>
+<!-- Body Text -->
+<p class="text-secondary-text-light dark:text-secondary-text-dark text-base font-normal leading-relaxed mb-8 px-2">
+                    Join 10,000+ others receiving our weekly guide to ChatGPT Plus features, prompts, and news.
+                </p>
+<!-- Form Section -->
+<form class="w-full flex flex-col gap-4">
+<!-- Email Input -->
+<div class="relative w-full group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-secondary-text-light dark:text-secondary-text-dark group-focus-within:text-primary transition-colors">mail</span>
+</div>
+<input class="form-input block w-full pl-12 pr-4 py-4 rounded-xl border-0 bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark ring-1 ring-inset ring-black/5 dark:ring-white/10 focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-black/20 placeholder:text-secondary-text-light/50 dark:placeholder:text-secondary-text-dark/50 transition-all text-base" placeholder="you@example.com" required="" type="email"/>
+</div>
+<!-- Subscribe Button -->
+<button class="w-full bg-primary hover:bg-primary/90 active:scale-[0.98] text-black font-bold py-4 px-6 rounded-xl shadow-glow transition-all duration-200 flex items-center justify-center gap-2" type="button">
+<span>Subscribe Now</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</form>
+<!-- Privacy Note -->
+<p class="mt-6 text-xs text-secondary-text-light/70 dark:text-secondary-text-dark/60">
+                    No spam, unsubscribe anytime. <a class="underline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</p>
+</div>
+<!-- Recent Issues Preview (Optional visual context) -->
+<div class="mt-8 w-full">
+<h3 class="text-sm font-semibold text-text-light dark:text-text-dark mb-4 pl-1">Recent Issues</h3>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2 -mx-6 px-6 snap-x">
+<!-- Issue 1 -->
+<div class="flex-none snap-center w-[200px] bg-card-light dark:bg-card-dark p-3 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-2 group cursor-pointer hover:border-primary/30 transition-colors">
+<div class="w-full h-24 rounded-lg bg-cover bg-center relative overflow-hidden" data-alt="Abstract AI neural network visualization in blue and purple" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuATMpxElBqtlpnuykEXWI18264BQLWLmwYc4gAYWkZuqJOfH19uQS-j-SUlGifQzk6LDzvETHYpc4LZvF8DQZOFL1u7FRz-RcNia9NKYxbJ5PrXtmOE1NNCGz6XRmZD0AcCAtqJ5E3RFgTe_O2RqKV7kFS2UBSecgIdXrHYXR_Kv3UyxkO_m4zDWA-XRrm2tdcPwTcKF_7iBFp6e1T0xF3hAKocrhNmDF2CmdjGONd6Z2HCQARYgQBgNEK9-AAafYXsF7wPWdneOrTD');">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Issue #42</span>
+<span class="text-sm font-medium text-text-light dark:text-text-dark truncate">Advanced Prompt Engineering</span>
+</div>
+</div>
+<!-- Issue 2 -->
+<div class="flex-none snap-center w-[200px] bg-card-light dark:bg-card-dark p-3 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-2 group cursor-pointer hover:border-primary/30 transition-colors">
+<div class="w-full h-24 rounded-lg bg-cover bg-center relative overflow-hidden" data-alt="Futuristic glowing robot hand touching digital interface" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBHZ-p_If3lvGSVQpcwOHJnJrip5JsxdcewHpJ-rLClPcDn9-QokY81p080ZekRRzQ4Nbr2WvlaTo1pbFNM9R_ExL_QHY07XxkohvXG3IBDpBIyI7ftWR3M_hgosx0EWZ0UXeHcPk80n5rH99XdyB7eVqqm0wH8hmqAzMoi-LeEiJTMmgGkOjr2prtcZRWyBP37pFx_GHsMlRtqTvmdiLm3fxyQSNvyVz6xLiAjUyoCADc5lhWe-E3z6DogIvg__j1sukRt8YQi7C7X');">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Issue #41</span>
+<span class="text-sm font-medium text-text-light dark:text-text-dark truncate">GPT-4o Vision Guide</span>
+</div>
+</div>
+<!-- Issue 3 -->
+<div class="flex-none snap-center w-[200px] bg-card-light dark:bg-card-dark p-3 rounded-xl border border-black/5 dark:border-white/5 flex flex-col gap-2 group cursor-pointer hover:border-primary/30 transition-colors">
+<div class="w-full h-24 rounded-lg bg-cover bg-center relative overflow-hidden" data-alt="Abstract colorful light waves background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHoaeYNcMeNoxaoZiQC5ELGNJs3MN63L783UlxSawcaFhS3x8oTB7yLP1k3KYaLqzVIfWdIuDx8fAC5Stf1v3LSvbjl4L_AraCMSYha2poxVlXOkiD3bIp-HhH8MBmZCOX1rcnCSuuZujdC78t0O-NLWSSWQ0HxZ9RvoGgAMtu9KbFCBDC4dSVuG5-4r6Kh9vTP_UXacAYeOtqidiEPgsHdpv0odY3dk3YBVC-4XBlX3VfoA0yvUCXZ0gSAiKRAX0CJo8fHKKe9blL');">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Issue #40</span>
+<span class="text-sm font-medium text-text-light dark:text-text-dark truncate">Plugins Masterclass</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Keyboard spacer if needed -->
+<div class="h-6"></div>
+</div>
+</body></html>

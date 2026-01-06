@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#13ecec",
+                "background-light": "#f6f8f8",
+                "background-dark": "#102222",
+                "surface-light": "#ffffff",
+                "surface-dark": "#162a2a",
+                "border-light": "#e5e7eb",
+                "border-dark": "#2d4a4a",
+                },
+                fontFamily: {
+                "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "2.5rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for textareas */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background-color: rgba(19, 236, 236, 0.2);
+            border-radius: 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-background-dark">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-border-light/50 dark:border-border-dark/50 transition-colors">
+<div class="flex items-center justify-between px-4 py-3 max-w-md mx-auto w-full">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-200 dark:hover:bg-white/5 transition-colors group">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-slate-800 dark:group-hover:text-white">close</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight">Edit Profile</h2>
+<button class="text-slate-500 dark:text-slate-400 text-sm font-semibold hover:text-primary transition-colors">
+<!-- Placeholder for balance or secondary action if needed, using text 'Help' for now or empty div -->
+<span class="hidden">Help</span>
+</button>
+</div>
+</header>
+<div class="flex-1 flex flex-col items-center w-full max-w-md mx-auto pt-6 pb-24 px-4 gap-6">
+<!-- Avatar Section -->
+<div class="relative flex flex-col items-center gap-4 w-full">
+<div class="relative group">
+<div class="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-surface-light dark:ring-surface-dark shadow-xl bg-slate-200 dark:bg-slate-800">
+<img alt="Profile avatar of a young man smiling against a white background" class="w-full h-full object-cover" data-alt="Profile avatar of a young man smiling against a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcJ-6veV8gkzsDkj0nYSbIaStiZUdE-cVXLnkv2IE01NOVRA8HsqfRbK8yzjHTEsh__WSQ_ctNFEwBEbsGnN6K0PXwkvHdvnfTAAI6b9Qni55Q9BdShFq1WP63JfYKsrmQ9mexGmXoEmamoxJ9FaigfwOox16Nfztc88XkH0GLLAfIpNOI7Okf9C1LXEpyZjdEsleYOJNTQ42DBY6FpNdpgfAmcY7jijAF5O1SvM3zMwBwI2jn-brM8MuRXwpWtt1r4kydtwxHQlP9"/>
+<!-- Loading Overlay (Simulated hidden state) -->
+<div class="absolute inset-0 bg-black/50 hidden items-center justify-center">
+<div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+</div>
+</div>
+<!-- Edit Badge -->
+<button class="absolute bottom-1 right-1 bg-primary text-background-dark p-2.5 rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center border-4 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined text-[20px] leading-none">photo_camera</span>
+</button>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Tap icon to change photo</p>
+</div>
+<!-- Form Card -->
+<div class="w-full bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark p-1">
+<div class="flex flex-col gap-6 p-4">
+<!-- Display Name Field -->
+<div class="flex flex-col gap-2 group/input">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-200 pl-1" for="display-name">Display Name</label>
+<div class="relative">
+<input class="w-full bg-slate-50 dark:bg-[#132626] text-slate-900 dark:text-white border border-border-light dark:border-border-dark rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all font-medium placeholder:text-slate-400 dark:placeholder:text-slate-500" id="display-name" placeholder="Enter your display name" type="text" value="Alex Morgan"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 group-focus-within/input:text-primary transition-colors pointer-events-none">person</span>
+</div>
+<!-- Error Message Example (Hidden by default) -->
+<p class="hidden text-red-500 text-xs pl-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                        Name cannot be empty
+                    </p>
+</div>
+<!-- Bio Field -->
+<div class="flex flex-col gap-2 group/input">
+<div class="flex justify-between items-end pl-1 pr-1">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-200" for="bio">Bio</label>
+<span class="text-xs text-slate-400 dark:text-slate-500 font-mono">42/160</span>
+</div>
+<textarea class="w-full bg-slate-50 dark:bg-[#132626] text-slate-900 dark:text-white border border-border-light dark:border-border-dark rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all font-normal leading-relaxed placeholder:text-slate-400 dark:placeholder:text-slate-500 min-h-[140px] resize-none" id="bio" placeholder="Tell the community a bit about yourself...">Tech enthusiast, coffee lover, and ChatGPT power user. Always learning something new!</textarea>
+</div>
+</div>
+</div>
+<!-- Supabase Info Note -->
+<div class="w-full px-2">
+<div class="flex gap-3 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
+<span class="material-symbols-outlined text-blue-500 shrink-0">info</span>
+<p class="text-xs text-blue-600 dark:text-blue-300 leading-relaxed">
+                    Your avatar is stored securely. Changes to your profile may take a few minutes to reflect across the app.
+                </p>
+</div>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark h-32 pointer-events-none"></div>
+<div class="fixed bottom-0 left-0 right-0 z-50 p-4 max-w-md mx-auto">
+<button class="group relative w-full flex items-center justify-center gap-2 bg-primary hover:bg-[#0fdbdb] active:bg-[#0bcbc] text-background-dark text-base font-bold h-14 rounded-full shadow-lg shadow-primary/25 transition-all transform active:scale-[0.98] overflow-hidden">
+<span class="relative z-10">Save Changes</span>
+<span class="material-symbols-outlined relative z-10 text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+<!-- Shimmer effect overlay -->
+<div class="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0"></div>
+</button>
+</div>
+<!-- Success Toast Notification (Positioned at top) -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-3 px-5 py-3 bg-[#162a2a] dark:bg-primary border border-slate-700 dark:border-primary/50 rounded-full shadow-2xl shadow-black/50 animate-[slideDown_0.5s_ease-out_forwards]">
+<div class="flex items-center justify-center w-6 h-6 rounded-full bg-green-500/20 dark:bg-black/10">
+<span class="material-symbols-outlined text-green-400 dark:text-black text-sm font-bold">check</span>
+</div>
+<p class="text-sm font-semibold text-white dark:text-black pr-1">Profile Updated Successfully</p>
+</div>
+<!-- Animation Keyframes -->
+<style>
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+    </style>
+</body></html>

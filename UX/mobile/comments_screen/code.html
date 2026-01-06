@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Comments Screen</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ecec",
+                        "primary-dark": "#0ea5a5",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#102222",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#162a2a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "1.5rem", 
+                        "xl": "2rem", 
+                        "2xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 15px rgba(19, 236, 236, 0.15)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better aesthetics */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: rgba(156, 163, 175, 0.3);
+            border-radius: 20px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-display transition-colors duration-200 antialiased overflow-hidden">
+<!-- Main Container -->
+<div class="relative flex flex-col h-full min-h-screen w-full max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden border-x border-gray-200 dark:border-gray-800">
+<!-- Top App Bar -->
+<header class="flex-none flex items-center justify-between p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-20 border-b border-gray-200 dark:border-gray-800/50">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight text-center flex-1 text-gray-900 dark:text-white">
+                Comments <span class="text-sm font-medium text-gray-500 dark:text-gray-400 ml-1">(4)</span>
+</h2>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<!-- Comments List (Scrollable) -->
+<main class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-6 pb-24">
+<!-- Comment 1: Standard -->
+<div class="group flex gap-3 animate-in fade-in slide-in-from-bottom-4 duration-500">
+<div class="bg-center bg-no-repeat bg-cover rounded-full w-10 h-10 shrink-0 border-2 border-white dark:border-gray-700 shadow-sm" data-alt="Portrait of Alice Chen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQ7qh2_SBqQLsCwu7l4f7vlej3EvypPic1WXkdIbNfyBIckGUWOpo3d7oznWa3d6lJ-x992iC_g00hTlkna8TE6lVJffB0Cw99FJBr56cjb_3Z_pGYeH855UAtY3pl_B-eSFkiUDZ-K6E7sKniAgwB0rZSwW2-zLLP_WHxhUJNCExXYKTTzt73G74i9o1SCvnzo0E0JJQf-TrU3bj4NM1Spoh7MLxlDWwCC0uI7trrUgZZMC8L0tJHHhLRFdCxRGC1WyVewBqMfmeG");'>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex items-baseline justify-between">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-gray-900 dark:text-white">Alice Chen</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">2h ago</span>
+</div>
+</div>
+<div class="p-3 bg-white dark:bg-surface-dark rounded-2xl rounded-tl-none shadow-soft text-sm leading-relaxed text-gray-700 dark:text-gray-200 border border-gray-100 dark:border-gray-800">
+                        This guide really helped me understand the new plugins! The section on data analysis was particularly useful.
+                    </div>
+<div class="flex items-center gap-4 mt-1 ml-1">
+<button class="flex items-center gap-1.5 text-gray-400 hover:text-primary transition-colors group/btn">
+<span class="material-symbols-outlined text-[18px] group-hover/btn:filled-icon">thumb_up</span>
+<span class="text-xs font-medium">12</span>
+</button>
+<button class="text-gray-400 hover:text-red-400 transition-colors">
+<span class="material-symbols-outlined text-[18px]">thumb_down</span>
+</button>
+<button class="text-gray-400 hover:text-gray-200 transition-colors ml-auto">
+<span class="text-xs font-medium">Reply</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Comment 2: Standard -->
+<div class="group flex gap-3 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
+<div class="bg-center bg-no-repeat bg-cover rounded-full w-10 h-10 shrink-0 border-2 border-white dark:border-gray-700 shadow-sm" data-alt="Portrait of David Miller" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAjzstrjJPAXtJs_WEb9gkkGSYPSjy0TMkYpfukBjE2vpaoqaCZ9IH_jQ8wy1b6hRGf5T_Ofgz76QvawM3yufXcdL60Nf9CZMxzpJH3GuywRkQibE_oB1AdyXmAmQPlRcstle3j_7LP_AJ03DspPviBqEBYXgPl7w156SVAiaKVsQTczsnGMIg7A4A0ioJXu4U30a-Izu47zOzJf0g9JC2ZC4qj7ofxv8DnVVr-FpCJnJcm_Rk7aK7VWtii7oAnISIxYT-4qruBOVAb");'>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex items-baseline justify-between">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-gray-900 dark:text-white">David Miller</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">1h ago</span>
+</div>
+<!-- Owner Action Menu -->
+<button class="text-gray-400 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="p-3 bg-white dark:bg-surface-dark rounded-2xl rounded-tl-none shadow-soft text-sm leading-relaxed text-gray-700 dark:text-gray-200 border border-gray-100 dark:border-gray-800">
+                        Agreed! The code interpreter examples were spot on. Can't wait for part 2.
+                    </div>
+<div class="flex items-center gap-4 mt-1 ml-1">
+<button class="flex items-center gap-1.5 text-primary transition-colors group/btn">
+<span class="material-symbols-outlined text-[18px] filled-icon">thumb_up</span>
+<span class="text-xs font-medium">3</span>
+</button>
+<button class="text-gray-400 hover:text-red-400 transition-colors">
+<span class="material-symbols-outlined text-[18px]">thumb_down</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Comment 3: Optimistic / Pending -->
+<div class="group flex gap-3 opacity-60">
+<div class="bg-center bg-no-repeat bg-cover rounded-full w-10 h-10 shrink-0 border-2 border-white dark:border-gray-700 shadow-sm" data-alt="User Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJz4lWe6sLYEixxwnD7H3pSMyioZWdi-FUmyzTToCAcZry7G8xnwJdNQvtB2HhbRpKPDvB2DEnchnifKZ3dJHAloDdwE17ivm9Ya4y6W9tD0YiL5yhHF5_yY60J19IiMjsM0inpn8UJIsLe1KMrO3ar9UeMEjNsJnxGpUl4S5jMnaHlbwZQf1nsr4aw7UjmO0Mv9j9E_DoSczRk-enEHfhdMo6s2iFN50Zx7gRYL445TzHsij_yTVbmc3dZE2LQ1ketvJaCo0MVk_U");'>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex items-baseline justify-between">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-gray-900 dark:text-white">Sarah Jones</span>
+<span class="text-xs text-primary font-medium animate-pulse">Posting...</span>
+</div>
+</div>
+<div class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-2xl rounded-tl-none shadow-none text-sm leading-relaxed text-gray-600 dark:text-gray-300 border border-transparent">
+                        Just trying this out now... hopefully it works!
+                    </div>
+</div>
+</div>
+<!-- Comment 4: Error State -->
+<div class="group flex gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full w-10 h-10 shrink-0 border-2 border-red-500/50 shadow-sm grayscale opacity-80" data-alt="User Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCAbsO1J-kZCJoBT-owop88NDiA89b1bINtKDKM3kqFD19imVGzEnyx1WvDBRz1-5tNIBdYs57iWvVFQFzpDUHG6Bvr1XnWgwXCIIZPMW6pne254k5rxxbdO9nKcX5PzOZoL_7V5dbn1P0Av4bk55FROCsx62Lligav7rZCOYVcRjSPMzF7lwQYMQyG3JDByJNH7Ev2jzsYME27t_TOxNCgccTfFEkIf8Y_MemNUtQwOClzc5ym6qgLI-Km7pgUidfBVIjlVIk0YZ-9");'>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex items-baseline justify-between">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-gray-500">Sarah Jones</span>
+<span class="flex items-center gap-1 text-xs text-red-500 font-medium">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                                Failed
+                            </span>
+</div>
+</div>
+<div class="p-3 bg-red-50 dark:bg-red-900/10 rounded-2xl rounded-tl-none shadow-none text-sm leading-relaxed text-gray-500 dark:text-gray-400 border border-red-200 dark:border-red-900/30">
+                        This comment failed to send due to connection issues.
+                    </div>
+<div class="mt-1 ml-1">
+<button class="text-xs font-semibold text-red-500 hover:text-red-400 underline decoration-red-500/30 hover:decoration-red-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+                            Tap to retry
+                        </button>
+</div>
+</div>
+</div>
+<!-- End of list spacer -->
+<div class="h-4"></div>
+</main>
+<!-- Sticky Input Area -->
+<footer class="flex-none p-4 pb-6 bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 shadow-[0_-4px_20px_-2px_rgba(0,0,0,0.1)] dark:shadow-none z-30">
+<div class="flex items-end gap-3 w-full">
+<!-- Current User Avatar -->
+<div class="bg-center bg-no-repeat bg-cover rounded-full w-9 h-9 shrink-0 border border-gray-200 dark:border-gray-700 mb-1" data-alt="Current User Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJ_yJLAZCkPdn-Y7gdn0G3QQYWJ2MK7qzgSQ772URZsqyrOja7YwP6jdybZobWu2lPDZJHhO4FhZVaExHN4hmFbZcUJ7ttQ959WGtD8OdzyUQlIcPLOYYCARex4Brkb-ut0Et8Tpudw7LiFOApHOKwCIdXPoLATx0lSMhM9dTCb2qPk-wNVpMSp8qSr87vhRRt6by4wwr1I-PMyx5gVfpf4cork4_rDU9fRZzx_aOy_yh4TFV8rugBEdCPnrv5mfzrmpm_u4J6OfQb");'>
+</div>
+<!-- Input Field -->
+<div class="flex-1 relative">
+<textarea class="w-full bg-gray-100 dark:bg-[#0b1616] text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 text-sm rounded-[1.5rem] py-3 pl-4 pr-12 border-none focus:ring-2 focus:ring-primary/50 resize-none overflow-hidden min-h-[44px] max-h-32" placeholder="Add a comment..." rows="1" style="field-sizing: content;"></textarea>
+<!-- Send Button -->
+<button aria-label="Send comment" class="absolute right-1.5 bottom-1.5 p-1.5 h-8 w-8 flex items-center justify-center rounded-full bg-primary hover:bg-primary-dark text-background-dark transition-all transform hover:scale-105 shadow-glow">
+<span class="material-symbols-outlined text-[18px] translate-x-[1px]">send</span>
+</button>
+</div>
+</div>
+<!-- Accessible helper text for keyboard users, usually hidden visually but here for demo completeness -->
+<!-- <p class="sr-only">Press Enter to send</p> -->
+</footer>
+</div>
+<!-- Optional: Add a backdrop/overlay effect if this was a modal -->
+<!-- <div class="fixed inset-0 bg-black/50 z-[-1] backdrop-blur-sm"></div> -->
+</body></html>

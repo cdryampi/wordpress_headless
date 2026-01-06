@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guides Index Screen</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ecec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#102222",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c2c",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white transition-colors duration-200">
+<div class="relative min-h-screen w-full flex flex-col max-w-md mx-auto overflow-x-hidden pb-8">
+<!-- Header -->
+<header class="sticky top-0 z-30 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-5 pt-4 pb-2 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-full bg-surface-light dark:bg-surface-dark shadow-sm text-slate-900 dark:text-white">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Guides</h1>
+</div>
+<button class="flex items-center justify-center size-10 overflow-hidden rounded-full border-2 border-transparent hover:border-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC073d5jghejC3vN5A5u5KjqEQfngvyGPPm7DcK_BlYW2DE8MCFG0onSzJNl816MFA8cLpgdzYs4OotZcez8YTZE2zN4pTHooT1j_r9pNIAvhvCDkAmk5RhR9AljGKLgV63pqgFpu-x6WDotWUH5DxMU-Qn1KOXVURrK-RqbNorG9M2KA9y9qPTGXi6FYv01EtrINSJExtSbg-CKLo58vPxTwMN4Chop8WwiS_wf_XMRG1Saquf955a63-RPlrOYPzeEHGA7KlcnWsd"/>
+</button>
+</header>
+<!-- Search Bar -->
+<div class="px-5 py-2">
+<div class="group flex w-full items-center rounded-xl bg-surface-light dark:bg-surface-dark shadow-soft border border-transparent focus-within:border-primary/50 transition-all h-14 px-4 gap-3">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500">search</span>
+<input class="w-full bg-transparent border-none p-0 text-base font-medium text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-0" placeholder="Search guides, topics..." type="text"/>
+</div>
+</div>
+<!-- Scrollable Topic Chips -->
+<div class="w-full overflow-x-auto no-scrollbar py-3 pl-5 pr-5">
+<div class="flex gap-3 min-w-max">
+<!-- Active Chip -->
+<button class="flex items-center justify-center px-5 h-10 rounded-full bg-primary text-slate-900 font-semibold text-sm shadow-md shadow-primary/20 transition-transform active:scale-95">
+                    All
+                </button>
+<!-- Inactive Chips -->
+<button class="flex items-center justify-center px-5 h-10 rounded-full bg-surface-light dark:bg-surface-dark text-slate-600 dark:text-slate-300 font-medium text-sm border border-slate-100 dark:border-slate-700/50 shadow-sm whitespace-nowrap transition-transform active:scale-95 hover:bg-slate-50 dark:hover:bg-slate-800">
+                    Getting Started
+                </button>
+<button class="flex items-center justify-center px-5 h-10 rounded-full bg-surface-light dark:bg-surface-dark text-slate-600 dark:text-slate-300 font-medium text-sm border border-slate-100 dark:border-slate-700/50 shadow-sm whitespace-nowrap transition-transform active:scale-95 hover:bg-slate-50 dark:hover:bg-slate-800">
+                    Prompt Engineering
+                </button>
+<button class="flex items-center justify-center px-5 h-10 rounded-full bg-surface-light dark:bg-surface-dark text-slate-600 dark:text-slate-300 font-medium text-sm border border-slate-100 dark:border-slate-700/50 shadow-sm whitespace-nowrap transition-transform active:scale-95 hover:bg-slate-50 dark:hover:bg-slate-800">
+                    Plugins
+                </button>
+<button class="flex items-center justify-center px-5 h-10 rounded-full bg-surface-light dark:bg-surface-dark text-slate-600 dark:text-slate-300 font-medium text-sm border border-slate-100 dark:border-slate-700/50 shadow-sm whitespace-nowrap transition-transform active:scale-95 hover:bg-slate-50 dark:hover:bg-slate-800">
+                    DALL-E 3
+                </button>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex flex-col gap-6 px-5 mt-2">
+<!-- Featured Section -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Featured Guide</h2>
+</div>
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-light dark:bg-surface-dark shadow-soft transition-transform active:scale-[0.99]">
+<div class="relative w-full aspect-[16/9] overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<span class="absolute top-3 left-3 z-20 bg-primary/90 backdrop-blur-sm text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
+                            Editor's Choice
+                        </span>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Abstract colorful digital waves representing AI vision capabilities" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVlAMAi8cFnTgYwNsT7J0_92FzYLDogUpLajzgMwTFVZnfU9bGQpikqp7KXHKUSlhR1K6CUminADasoKUOaHIUA9BOWIx4LIaLtogzfw0V9F6AzG_O0WcFLUAafxOE3FlSEOg11un8jhwfi_4RhHGsyM_GhD97p87TZmDJS7AJzy6E8xkK2JJVV7V5ZVLy4_fqrnmX2tIyT3sXI86wMkVHfrafkZUo0-2IpaFeQZ7KA4MG9X-XMBn70nMrlG3Js_2d5WC08R21D7xm");'>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs font-semibold text-primary">Advanced</span>
+<span class="text-xs text-slate-400">•</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct 24, 2023</span>
+</div>
+<h3 class="text-xl font-bold leading-tight text-slate-900 dark:text-white">
+                            Mastering GPT-4 Vision Capabilities
+                        </h3>
+<p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
+                            Learn how to analyze images, charts, and complex visual data effectively with the new multimodal features.
+                        </p>
+<div class="flex items-center gap-2 mt-2 pt-3 border-t border-slate-100 dark:border-slate-800">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">schedule</span>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">8 min read</span>
+<div class="flex-1"></div>
+<button class="text-sm font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
+                                Read now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Latest/List Section -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Latest Updates</h2>
+<button class="text-sm font-medium text-primary hover:opacity-80">View all</button>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Card 1 -->
+<article class="flex flex-col sm:flex-row gap-4 p-4 rounded-xl bg-surface-light dark:bg-surface-dark shadow-soft hover:shadow-md transition-shadow">
+<div class="shrink-0 w-full sm:w-28 h-40 sm:h-28 rounded-lg bg-cover bg-center" data-alt="Abstract minimalist shapes in blue and white representing context" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBgp_BQDnho2HUE1uj2s-Aj_Z_wKd-BMR-cINo8y_kfemq3csfASszUQeuya56tBr_41tLFrRkcxBMhcMbqCAhhtNk7Vhch0WAL_oKSQPQo9UqemSqD5zPtqTB9NzI6AtSpOWrWgVc77M1huBXz4GKYCjoFZ7tKdzLhZHJqIkRgY4Wc43IEJdgW7eS4iU1xTzFqnSkGONNLEQSRLEeBwjo1so3MYDC1e_cH-8NWjUO5N8-vtczyVxFS3U4YlUsXKep27r-v_XjPRHpo");'>
+</div>
+<div class="flex flex-col flex-1 justify-center gap-1.5">
+<div class="flex items-center gap-2">
+<span class="bg-primary/10 text-primary-dark dark:text-primary text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide">Tips</span>
+</div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white line-clamp-2">
+                                5 Tips for Better Context Management
+                            </h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-1">
+                                Stop the model from forgetting important details in long conversations.
+                            </p>
+<div class="flex items-center gap-3 text-xs text-slate-400 dark:text-slate-500 font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                    5 min read
+                                </div>
+<span>•</span>
+<div>Nov 12, 2023</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col sm:flex-row gap-4 p-4 rounded-xl bg-surface-light dark:bg-surface-dark shadow-soft hover:shadow-md transition-shadow">
+<div class="shrink-0 w-full sm:w-28 h-40 sm:h-28 rounded-lg bg-cover bg-center" data-alt="Dark futuristic interface showing code snippets" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9erlj3SR-DdLukfFV6ZJvjdTTwNryVWsKSuz2PPWiACNMjD4HeBFUk1zrUSL9_0gnvYmLJ9d5lKE4ESWJ2YaV3NtCdm9bDaEeYJGvp5hBQph7UIAXMr1D2w2Q-TfJsQNIUD5ltMfTZZUNXRTIbTXzpwBc65osKuGBM87nYvbU1BXvRpzysIE9K9CRNQqz74BJhznGitMUaES8z0gVTjK8am_jJ16ovg2RiUyW7v4OR-g9rY_7zsXkZXACcfCIdIqOlIKcFIhz0sG-");'>
+</div>
+<div class="flex flex-col flex-1 justify-center gap-1.5">
+<div class="flex items-center gap-2">
+<span class="bg-purple-500/10 text-purple-600 dark:text-purple-400 text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide">Code</span>
+</div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white line-clamp-2">
+                                Debugging Python with ChatGPT
+                            </h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-1">
+                                A streamlined workflow for identifying and fixing runtime errors quickly.
+                            </p>
+<div class="flex items-center gap-3 text-xs text-slate-400 dark:text-slate-500 font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                    12 min read
+                                </div>
+<span>•</span>
+<div>Nov 10, 2023</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col sm:flex-row gap-4 p-4 rounded-xl bg-surface-light dark:bg-surface-dark shadow-soft hover:shadow-md transition-shadow">
+<div class="shrink-0 w-full sm:w-28 h-40 sm:h-28 rounded-lg bg-cover bg-center" data-alt="Colorful abstract 3D render representing DALL-E creativity" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA9yIVNuP86q8jkFo3WXR9ZYDaOL-DE9hRqpoyu3PIP5kTYS5zIEehkR4uHg8z8G0KiVqfp-hulD9fV9xDqSHITCbrnyFJpcI4EZi4UEzRfrSM65PAFWpFEAjKxngxlmHUqR1MTcLY4DGw93Qm1F2ZxruGEQ8B7MB_zqkRgeiHjXRKNVvvqOmx6UxCaSESk_OiL9D-u8l1dkdP05nlYwPoBRCAz4u7MFj7GGLXgCJ1Vs38j0N92_0lskHp6dKszditUHCidi0xTZDV8");'>
+</div>
+<div class="flex flex-col flex-1 justify-center gap-1.5">
+<div class="flex items-center gap-2">
+<span class="bg-pink-500/10 text-pink-600 dark:text-pink-400 text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wide">DALL-E 3</span>
+</div>
+<h3 class="text-base font-bold text-slate-900 dark:text-white line-clamp-2">
+                                Creating Consistent Character Styles
+                            </h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-1">
+                                How to use seeds and specific prompts to keep characters looking the same.
+                            </p>
+<div class="flex items-center gap-3 text-xs text-slate-400 dark:text-slate-500 font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                    7 min read
+                                </div>
+<span>•</span>
+<div>Nov 08, 2023</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Load More Button -->
+<div class="py-2 flex justify-center">
+<button class="w-full py-3 rounded-xl bg-surface-light dark:bg-surface-dark border-2 border-slate-100 dark:border-slate-800 text-slate-900 dark:text-white font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                    Load More Guides
+                </button>
+</div>
+<!-- Empty State (Hidden Demo) -->
+<!-- Removing 'hidden' class here to visualize it as part of the request, 
+                 in a real app this would be conditional logic -->
+<div class="hidden flex-col items-center justify-center py-12 px-4 text-center rounded-xl bg-surface-light dark:bg-surface-dark border-2 border-dashed border-slate-200 dark:border-slate-800">
+<div class="size-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-slate-400">manage_search</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">No guides found</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm max-w-[240px] mb-6">
+                    We couldn't find any guides matching your current filters.
+                </p>
+<button class="px-6 py-2 bg-primary text-slate-900 font-bold rounded-lg hover:bg-primary/90 transition-colors">
+                    Clear Filters
+                </button>
+</div>
+</div>
+</div>
+</body></html>

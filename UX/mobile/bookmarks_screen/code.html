@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bookmarks Screen</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ecec",
+                        "primary-dark": "#0ebcb c", 
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#102222",
+                        "card-dark": "#162a2a",
+                        "card-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col items-center">
+<!-- Mobile Container -->
+<div class="w-full max-w-md h-full min-h-screen flex flex-col relative bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-20 flex items-center justify-between px-4 py-3 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-white/5">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors group">
+<span class="material-symbols-outlined text-gray-900 dark:text-white group-active:scale-90 transition-transform">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight">Saved Guides</h1>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors group">
+<span class="material-symbols-outlined text-gray-900 dark:text-white">search</span>
+</button>
+</header>
+<!-- Main Content Area: List View -->
+<main class="flex-1 overflow-y-auto px-4 py-6 space-y-5 scrollbar-hide">
+<!-- Date Header -->
+<div class="flex items-center justify-between px-1">
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Recently Added</span>
+<span class="text-xs font-medium text-primary cursor-pointer hover:underline">Edit</span>
+</div>
+<!-- Card 1: Standard State -->
+<article class="group relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] overflow-hidden hover:shadow-lg transition-all border border-gray-100 dark:border-white/5 cursor-pointer active:scale-[0.98]">
+<!-- Thumbnail -->
+<div class="relative w-full sm:w-32 h-40 sm:h-auto shrink-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Abstract neural network mesh gradient in dark blue and cyan" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDarq589rmN5h9HXYuIM8_LoIOtBzOuNTFBbtowvoMRgMEedb5Qvb-J7R1E2td-OtzEexte9GA0-XDCqE0MINxKKPCO3JjT82b1ll4Mg2l0_6HH8VLOnllHOdZOfYU3xTKSQIANKru8Mabmx6Y0fbJxyarYyRtvmAvEEp1_Q4r2h36KLhBEdjm8X0SPNpIT4cJ0aUyf92j3XxydTovpag8sKPlz3W96FM7Kd7HUlxSQFGG3AxKDDvdr-UDUQw-WE00HszOOI6zRmBY');"></div>
+<!-- Type Badge -->
+<div class="absolute top-3 left-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md border border-white/10">
+<span class="text-[10px] font-bold text-white uppercase tracking-wide">Advanced</span>
+</div>
+</div>
+<!-- Content -->
+<div class="flex flex-col justify-between p-4 flex-1">
+<div class="space-y-2">
+<h3 class="text-base font-bold text-gray-900 dark:text-white leading-snug line-clamp-2 group-hover:text-primary transition-colors">Mastering Context Windows in GPT-4</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">Learn how to maximize token usage for long-form content generation and analysis.</p>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>6 min read</span>
+</div>
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600 group-hover:text-primary transition-colors">bookmark_added</span>
+</div>
+</div>
+</article>
+<!-- Card 2: Swipe Action State (Simulated) -->
+<div class="relative w-full rounded-xl overflow-hidden select-none">
+<!-- Swipe Background Actions -->
+<div class="absolute inset-0 flex items-center justify-end bg-red-500 rounded-xl pr-6 pl-4">
+<div class="flex flex-col items-center gap-1 text-white animate-pulse">
+<span class="material-symbols-outlined text-2xl">delete</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Remove</span>
+</div>
+</div>
+<!-- Foreground Card -->
+<article class="relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-white/5 transform -translate-x-24 transition-transform duration-300 ease-out">
+<div class="relative w-full sm:w-32 h-40 sm:h-auto shrink-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Abstract fluid shapes with orange and purple gradients" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzP83OP7n5xAxRHdWlY64fxyYVw3xcqckeUwIX71R00FkMr_9FOGwefhpIA7BDg3BvFN780Q27-2ti_n6hEeJ6I1xKxhW0yCxHMU1rkeu8xrMKHgyc3oci41qFNud9NKd0mtIy7kbL2iYftwFpZZzSDQg9JHsNiw93lACufWyo4nVyUQdYKmVHNLGFvIuma33HQz5bGXrHZvMpNnQ9dH4uUofk_Q9ObjBu8VwYLlhxRHCrfqJ527inTbR2h2OR1yFzw8nYrnrNNW12');"></div>
+<div class="absolute top-3 left-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md border border-white/10">
+<span class="text-[10px] font-bold text-white uppercase tracking-wide">Basics</span>
+</div>
+</div>
+<div class="flex flex-col justify-between p-4 flex-1">
+<div class="space-y-2">
+<h3 class="text-base font-bold text-gray-900 dark:text-white leading-snug">Understanding Token Limits</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400">A comprehensive guide to how tokens work and why they matter for your API costs.</p>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>4 min read</span>
+</div>
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600">bookmark_added</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Card 3: Standard State -->
+<article class="group relative flex flex-col sm:flex-row bg-card-light dark:bg-card-dark rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] overflow-hidden hover:shadow-lg transition-all border border-gray-100 dark:border-white/5 cursor-pointer active:scale-[0.98]">
+<div class="relative w-full sm:w-32 h-40 sm:h-auto shrink-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Futuristic neon grid lines in dark space" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQampxx0qqkbcRGFHzoG82fWY6M3NB6VxzPVmzxV84Tz3qYRgqInpwgXVcBg44wz2wfqww7DJB00w9yaAlwRZw9E5TSj7bpnz20Kj65ZMHHJzddgamHwxyxMnfKMOBvqLyxNV_pKqRtZVtJg5sEX9LC3X7KxC7CIWjHz5u1R1rt6Jjz5Ivv6nsF-sDf3myrmu9lPtk28vY-q4dr0zdSdwceTehZHjJlPyzbz8BeaKX41Gir7K0giNrVW3oGOXNV_mWP0z59bsfoYJ1');"></div>
+<div class="absolute top-3 left-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md border border-white/10">
+<span class="text-[10px] font-bold text-white uppercase tracking-wide">Strategy</span>
+</div>
+</div>
+<div class="flex flex-col justify-between p-4 flex-1">
+<div class="space-y-2">
+<h3 class="text-base font-bold text-gray-900 dark:text-white leading-snug line-clamp-2 group-hover:text-primary transition-colors">Fine-tuning vs. Prompting</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">When to train your own model and when to refine your prompt engineering skills.</p>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>8 min read</span>
+</div>
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600 group-hover:text-primary transition-colors">bookmark_added</span>
+</div>
+</div>
+</article>
+<!-- Separator for Demo Purposes (Example of Empty State) -->
+<div class="pt-12 pb-4 flex items-center justify-center gap-4 opacity-50">
+<div class="h-px bg-gray-300 dark:bg-white/20 w-12"></div>
+<span class="text-xs font-mono text-gray-500 dark:text-gray-400">EMPTY STATE PREVIEW</span>
+<div class="h-px bg-gray-300 dark:bg-white/20 w-12"></div>
+</div>
+<!-- Empty State Component -->
+<div class="flex flex-col items-center justify-center py-8 px-4 text-center">
+<div class="relative w-48 h-48 mb-6">
+<!-- Decorative BG circle -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-2xl"></div>
+<div class="relative w-full h-full bg-center bg-no-repeat bg-contain" data-alt="3D illustration of an empty open folder or box" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGInMT1zPNBmvJ-CeW8wQXBF9fzHeCf4GYNPqmUL6sP8v40kGXJSnl5hciRfx2FLP4SfMAIwRATCu440MmPO3j2L6svh-L26uoWh6gRxZCFSundE4uvxNSvmO64sa_IPv6hdOLOOibxoUvAe70-VZdjoIUnXchv7fY2WfMBGWojXQ5iHNrtXpl0wTva4V3wuy9WAe-XL0sIGvnlw9bT2G9SeY9v6kvyLWu2eWH18KGJLgd8DpP11Nhp9Uwo_qb5ovv1fpNHuGU9wyB');"></div>
+</div>
+<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">No bookmarks yet</h2>
+<p class="text-sm text-gray-500 dark:text-gray-400 max-w-[280px] mb-8 leading-relaxed">
+                    Guides you bookmark will appear here. Build your personal library of ChatGPT knowledge.
+                </p>
+<button class="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-[#0fd9d9] active:bg-[#0cbaba] text-background-dark text-sm font-bold rounded-xl shadow-[0_0_20px_-5px_rgba(19,236,236,0.4)] transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+<span>Explore Guides</span>
+</button>
+</div>
+<!-- Bottom Spacer -->
+<div class="h-24"></div>
+</main>
+<!-- Bottom Toast Notification (Simulated) -->
+<div class="absolute bottom-6 left-4 right-4 z-30 animate-bounce" style="animation-iteration-count: 1; animation-duration: 1s;">
+<div class="flex items-center justify-between bg-[#0f1a1a] dark:bg-white border border-white/10 dark:border-gray-200 shadow-2xl rounded-lg p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-green-500 text-sm">check</span>
+</div>
+<p class="text-sm font-medium text-white dark:text-gray-900">Bookmark removed</p>
+</div>
+<button class="text-sm font-bold text-primary dark:text-[#0b9c9c] hover:underline px-2">Undo</button>
+</div>
+</div>
+</div>
+</body></html>

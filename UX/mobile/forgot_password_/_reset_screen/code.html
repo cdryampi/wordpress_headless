@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forgot Password UI</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ecec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#102222",
+                        "card-dark": "#162b2b", 
+                        "input-dark": "#1d3636",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "2rem", 
+                        "xl": "3rem", 
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar to keep it clean */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #102222; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1d3636; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2a4a4a; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-white selection:bg-primary selection:text-black">
+<div class="relative flex h-full w-full flex-col overflow-x-hidden max-w-md mx-auto min-h-screen pb-10">
+<!-- Header / Navigation -->
+<div class="flex items-center px-4 pt-6 pb-2 justify-between">
+<button class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+</button>
+<div class="text-sm font-medium opacity-50">Reset Flow</div>
+</div>
+<!-- Scrollable Content Area -->
+<div class="flex-1 flex flex-col gap-8 p-4">
+<!-- STATE 1: Request Password Reset -->
+<section class="flex flex-col gap-6 w-full">
+<!-- Hero Icon -->
+<div class="flex justify-center py-6">
+<div class="relative flex items-center justify-center size-24 rounded-full bg-primary/10 ring-1 ring-primary/20 shadow-[0_0_30px_-5px_rgba(19,236,236,0.3)]">
+<span class="material-symbols-outlined text-primary text-[40px]">lock_reset</span>
+</div>
+</div>
+<!-- Text Content -->
+<div class="text-center space-y-2">
+<h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Forgot Password?</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base leading-relaxed px-2">
+                        Don't worry! It happens. Please enter the email associated with your account.
+                    </p>
+</div>
+<!-- Form Card -->
+<div class="bg-white dark:bg-card-dark rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-white/5">
+<form class="flex flex-col gap-5" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1" for="email">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">mail</span>
+</div>
+<input class="w-full bg-slate-50 dark:bg-input-dark border-0 ring-1 ring-slate-200 dark:ring-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 rounded-full py-3.5 pl-11 pr-4 focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-black/20 transition-all outline-none" id="email" placeholder="Enter your email" type="email"/>
+</div>
+</div>
+<button class="mt-2 w-full bg-primary hover:bg-[#0fdada] text-black font-bold text-base py-3.5 rounded-full shadow-[0_4px_14px_0_rgba(19,236,236,0.39)] transition-all active:scale-[0.98]" type="button">
+                            Send Reset Link
+                        </button>
+</form>
+</div>
+</section>
+<!-- Divider for Demo Purposes -->
+<div class="relative py-8 flex items-center justify-center opacity-30">
+<div class="h-px bg-slate-300 dark:bg-white/20 w-full"></div>
+<span class="px-3 text-xs uppercase tracking-widest text-slate-500 font-bold shrink-0">Demo: State 2 (Success)</span>
+<div class="h-px bg-slate-300 dark:bg-white/20 w-full"></div>
+</div>
+<!-- STATE 2: Check Email (Success) -->
+<section class="flex flex-col gap-6 w-full">
+<!-- Hero Image -->
+<div class="flex justify-center py-4">
+<div class="w-full h-40 rounded-2xl overflow-hidden relative group">
+<!-- Abstract gradient representing email transmission -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-primary/5"></div>
+<div class="w-full h-full bg-center bg-cover opacity-80 mix-blend-overlay" data-alt="Abstract neon envelope illustration representing email sent" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0L_dbNLVxmZheAQ4Uozu71I7qBhdtj0L2JcmzNK2U4NkKcaySO1v5r2la1pu9TPTBjtHe-b972rvWtRzSbZa379yfhu4RFVEFGfOUDxkDgdp7VjITq64Hm5cfMNtoIBFti9xmJuIDZf90x9-VMl3rNbveFRmY1H8MybnnRlsKoQS9RnvHPqXXMAhTCXjYbz8jCaxSTxB4ERMfPpizsPZ08zV9fykY4pokzwB82cg5x9rUp-YLA8nQYlxIBXztCvjU8Jl3t27eqmbd');"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-background-light dark:bg-background-dark p-4 rounded-full shadow-lg ring-1 ring-white/10">
+<span class="material-symbols-outlined text-primary text-4xl">mark_email_read</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Text Content -->
+<div class="text-center space-y-2">
+<h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Check your mail</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed px-4">
+                        We have sent password recovery instructions to <span class="text-slate-900 dark:text-white font-semibold">user@example.com</span>.
+                    </p>
+</div>
+<!-- Action Card -->
+<div class="flex flex-col gap-4 px-2">
+<button class="w-full bg-primary hover:bg-[#0fdada] text-black font-bold text-base py-3.5 rounded-full shadow-[0_4px_14px_0_rgba(19,236,236,0.39)] transition-all active:scale-[0.98]" type="button">
+                        Open Email App
+                    </button>
+<div class="flex items-center justify-center gap-2 mt-2">
+<span class="text-slate-500 dark:text-slate-400 text-sm">Didn't receive the email?</span>
+<button class="text-primary hover:text-primary/80 text-sm font-semibold">Resend</button>
+</div>
+<button class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-slate-900 dark:hover:text-white transition-colors mt-4">
+                        Skip, I'll confirm later
+                    </button>
+</div>
+</section>
+<!-- Divider for Demo Purposes -->
+<div class="relative py-8 flex items-center justify-center opacity-30">
+<div class="h-px bg-slate-300 dark:bg-white/20 w-full"></div>
+<span class="px-3 text-xs uppercase tracking-widest text-slate-500 font-bold shrink-0">Demo: State 3 (New Password)</span>
+<div class="h-px bg-slate-300 dark:bg-white/20 w-full"></div>
+</div>
+<!-- STATE 3: Set New Password -->
+<section class="flex flex-col gap-6 w-full pb-8">
+<div class="text-left space-y-2 px-1">
+<h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Reset Password</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm">
+                        Your new password must be different from previously used passwords.
+                    </p>
+</div>
+<div class="bg-white dark:bg-card-dark rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-white/5">
+<form class="flex flex-col gap-5" onsubmit="event.preventDefault();">
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1" for="new-password">New Password</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">lock</span>
+</div>
+<input class="w-full bg-slate-50 dark:bg-input-dark border-0 ring-1 ring-slate-200 dark:ring-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 rounded-full py-3.5 pl-11 pr-11 focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-black/20 transition-all outline-none" id="new-password" placeholder="••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+</div>
+<!-- Validation Hint -->
+<div class="flex items-center gap-1.5 ml-2 mt-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Must constitute 8 characters.</span>
+</div>
+</div>
+<!-- Confirm Password Field -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1" for="confirm-password">Confirm Password</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">lock_clock</span>
+</div>
+<input class="w-full bg-slate-50 dark:bg-input-dark border-0 ring-1 ring-slate-200 dark:ring-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 rounded-full py-3.5 pl-11 pr-11 focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-black/20 transition-all outline-none" id="confirm-password" placeholder="••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+</div>
+</div>
+<button class="mt-4 w-full bg-primary hover:bg-[#0fdada] text-black font-bold text-base py-3.5 rounded-full shadow-[0_4px_14px_0_rgba(19,236,236,0.39)] transition-all active:scale-[0.98]" type="button">
+                            Reset Password
+                        </button>
+</form>
+</div>
+</section>
+</div>
+</div>
+</body></html>

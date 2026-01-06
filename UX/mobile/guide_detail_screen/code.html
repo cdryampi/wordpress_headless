@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guide Detail Screen - ChatGPT Plus Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ecec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#102222",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "1.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 antialiased selection:bg-primary/30">
+<!-- Mobile Container mimicking a phone screen -->
+<div class="relative min-h-screen flex flex-col mx-auto bg-background-light dark:bg-background-dark overflow-hidden w-full max-w-lg shadow-2xl">
+<!-- Sticky Header -->
+<!-- Designed with glassmorphism to allow content to scroll underneath while maintaining visibility -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-background-light/85 dark:bg-background-dark/85 border-b border-gray-200/50 dark:border-gray-800/50 transition-all duration-300">
+<div class="flex items-center justify-between px-4 py-3 pb-3 pt-safe-top">
+<!-- pt-safe-top logic would be handled by env() in real app, using py-3 for demo -->
+<button class="group flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200/50 dark:hover:bg-gray-700/50 transition-colors">
+<span class="material-symbols-outlined text-gray-800 dark:text-white" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="group flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200/50 dark:hover:bg-gray-700/50 transition-colors">
+<span class="material-symbols-outlined text-gray-800 dark:text-white" style="font-size: 24px;">share</span>
+</button>
+<!-- Bookmark Toggle: Active state shown (Filled + Primary Color) -->
+<button class="group flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1; font-size: 24px;">bookmark</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Content Area -->
+<main class="flex-1 overflow-y-auto pb-40"> <!-- pb-40 ensures content isn't hidden behind sticky CTA -->
+<!-- Hero Image Section -->
+<div class="w-full h-72 relative bg-gray-200 dark:bg-gray-800 rounded-b-3xl overflow-hidden shadow-sm z-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Abstract AI network visualization with glowing blue nodes and connections" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMO38kbHAEtuZvPH4Q0-ZcJA8hkcksazeOUeZViLk17tgxgD2ovEH7CU_6lvv3dcLEUPo4WGuBB-v77yaGdW32_1nrqRMhRXNzLcUwEpWhQIpeY2XVaIw3Rx9SM_mY10BKdFsyt5LyzVNcHfrUJsAtlX73kr5y9j4H0_G4frIsINgoOnWZpUdUb4btMcxp5uNN6Ehujtk9sQXyWSN-CZ6l0AJcNuVu_85eQjfXEhjxkfypkWwQBf74G0QZr1GbPf9LtG23kp-hjBJJ');">
+</div>
+<!-- Gradient overlay for text readability if title was over image, but here it adds depth -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-light/40 to-transparent dark:from-background-dark/40"></div>
+</div>
+<!-- Article Container -->
+<div class="px-5 -mt-10 relative z-10">
+<!-- Title & Metadata Card -->
+<div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl shadow-gray-200/50 dark:shadow-black/20 border border-gray-100 dark:border-gray-800">
+<div class="mb-5">
+<h1 class="text-3xl font-extrabold leading-[1.15] text-gray-900 dark:text-white tracking-tight">
+                            Mastering Custom Instructions in ChatGPT Plus
+                        </h1>
+</div>
+<!-- Author & Meta Row -->
+<div class="flex items-center gap-3 pt-2">
+<div class="w-10 h-10 rounded-full bg-cover bg-center ring-2 ring-primary/30" data-alt="Portrait of Sarah Tech the author" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSzZ0IQoHypRIjtQ5SH81z_qdzHZHSPu_0lNTeiXQx3dv_EbaiSYMk4TAoOLrDv7hZhxao1DaQgZtoI445XV5kbcshFH1uA6n-CePCRvpGw_sEEfCOad9-s4mHZHUwphbtlfcVEtzWMZ3DIIs8r76nq5mUdDNBxVDPCmkGEqcFClfJJ7RzprR2eR4fgxHupJ_-oiwfo1kfvXebUPYOFoW73jzraIHxfE4GqDOAAUlo4ydCNTt14fJoF86lrUvMzCNASrHiUqXCHf4h')">
+</div>
+<div class="flex flex-col justify-center h-full">
+<span class="text-sm font-bold text-gray-900 dark:text-gray-100 leading-none mb-1">Sarah Tech</span>
+<div class="flex items-center text-xs font-medium text-gray-500 dark:text-gray-400 leading-none">
+<span>Oct 24, 2023</span>
+<span class="mx-1.5">•</span>
+<span class="flex items-center gap-0.5 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined text-[10px] align-middle">schedule</span>
+                                    5 min
+                                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Table of Contents Accordion -->
+<div class="mt-6">
+<details class="group rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm open:shadow-md transition-all duration-300" open="">
+<summary class="flex cursor-pointer items-center justify-between px-5 py-4 bg-gray-50/50 dark:bg-gray-800/30 hover:bg-gray-100 dark:hover:bg-gray-800/60 transition-colors select-none">
+<span class="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">toc</span>
+                                On this page
+                            </span>
+<span class="material-symbols-outlined text-gray-400 transform transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-5 pb-5 pt-1 bg-white dark:bg-gray-900">
+<nav class="space-y-3 pt-2">
+<a class="block text-sm font-medium text-primary border-l-2 border-primary pl-3 py-0.5" href="#">1. Introduction</a>
+<a class="block text-sm font-normal text-gray-600 dark:text-gray-400 border-l-2 border-transparent pl-3 py-0.5 hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300 transition-all" href="#">2. Setting up parameters</a>
+<a class="block text-sm font-normal text-gray-600 dark:text-gray-400 border-l-2 border-transparent pl-3 py-0.5 hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300 transition-all" href="#">3. Advanced Examples</a>
+</nav>
+</div>
+</details>
+</div>
+<!-- Article Body Content -->
+<article class="mt-8 prose prose-gray dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
+<p class="text-[17px]">
+                        Custom instructions allow you to tailor ChatGPT to your specific needs, ensuring that every response you get is formatted exactly how you like it. Whether you're a coder, a writer, or a project manager, setting these up once can save you hours of repetitive typing.
+                    </p>
+<h2 class="text-xl mt-8 mb-4 flex items-center gap-2">
+<span class="text-primary text-2xl font-black">#</span>
+                        Setting up parameters
+                    </h2>
+<p>
+                        By defining a persona or a set of rules, you reduce the need for context-setting in every new chat. It acts as a system-level prompt that persists across all your interactions.
+                    </p>
+<!-- Callout Box -->
+<div class="my-8 p-5 rounded-2xl bg-primary/5 dark:bg-primary/10 border-l-4 border-primary flex gap-4 items-start shadow-sm">
+<div class="p-1.5 bg-primary/20 rounded-lg shrink-0">
+<span class="material-symbols-outlined text-primary-dark dark:text-primary text-[20px] block">tips_and_updates</span>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white text-sm mb-1">Pro Tip</h4>
+<p class="text-sm text-gray-700 dark:text-gray-300 leading-snug">
+                                Be specific about the tone. "Professional but friendly" yields better results than just "Professional".
+                            </p>
+</div>
+</div>
+<h2 class="text-xl mt-8 mb-4 flex items-center gap-2">
+<span class="text-primary text-2xl font-black">#</span>
+                        Advanced Examples
+                    </h2>
+<p>
+                        Here is a simple Python snippet you can use to test if your instructions for code formatting are working correctly.
+                    </p>
+<!-- Code Block -->
+<div class="relative group my-6 rounded-xl overflow-hidden bg-[#1e1e1e] border border-gray-800 shadow-lg ring-1 ring-white/10">
+<div class="flex items-center justify-between px-4 py-2 bg-[#2d2d2d] border-b border-gray-700">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+</div>
+<span class="text-xs font-mono text-gray-400 absolute left-1/2 -translate-x-1/2">test_script.py</span>
+<button class="flex items-center gap-1.5 text-xs font-medium text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 px-2 py-1 rounded transition-colors">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+                                Copy
+                            </button>
+</div>
+<div class="p-4 overflow-x-auto">
+<pre class="text-sm font-mono text-gray-300 leading-relaxed"><code><span class="text-purple-400">def</span> <span class="text-blue-400">greet_user</span>(name):
+    <span class="text-green-400">"""
+    Simple greeting function
+    """</span>
+    <span class="text-purple-400">return</span> <span class="text-yellow-300">f"Hello, {name}! Welcome."</span>
+
+<span class="text-blue-300">print</span>(greet_user(<span class="text-yellow-300">"Alex"</span>))</code></pre>
+</div>
+</div>
+<p>
+                        Notice how the docstring is preserved? That's a result of the specific instruction set we configured earlier in the settings panel.
+                    </p>
+</article>
+<div class="w-full h-px bg-gray-200 dark:bg-gray-800 my-10"></div>
+<!-- Related Guides Carousel -->
+<div class="mb-8">
+<div class="flex items-center justify-between mb-5 px-1">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Related Guides</h3>
+<a class="flex items-center text-sm text-primary font-bold hover:text-primary/80 transition-colors" href="#">
+                            View all
+                            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+<!-- Carousel Container -->
+<div class="flex gap-4 overflow-x-auto pb-6 no-scrollbar -mx-5 px-5 snap-x snap-mandatory">
+<!-- Card 1 -->
+<div class="snap-center shrink-0 w-[260px] flex flex-col gap-3 group cursor-pointer">
+<div class="aspect-[16/9] w-full rounded-2xl bg-gray-200 dark:bg-gray-800 overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic robot hand interacting with digital interface" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAq_QaASnNedR5k5NLWHiMZqYGdhmLJXvnVvec_F524whUVoavzXIIwpswJXuCcUSLD3C4G_2jYtQkupA9Z6MyHz6kADVBydvrrJfZMtpNlQyjSVUi1OoiHkvvuCAh0V5_jQ1w7On6gKekRDkG4YSkHvMh75WCcWqOHyPNTVS8-BQytkpwACQ4BKKsLIeC4eeIqzQV5_4a2YOktAUX8elU_JxbsuRty6trfK54nrz_MIofyfvPE8zoLdrsuBfXkaXhb__SpfuEqusBj')">
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md px-2 py-0.5 rounded-lg text-[10px] text-white font-bold border border-white/10">
+                                    3 min
+                                </div>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white leading-tight line-clamp-2 mb-1 group-hover:text-primary transition-colors">Prompt Engineering 101: The Basics</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">Learn the fundamentals of effective prompting strategies.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="snap-center shrink-0 w-[260px] flex flex-col gap-3 group cursor-pointer">
+<div class="aspect-[16/9] w-full rounded-2xl bg-gray-200 dark:bg-gray-800 overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Digital eye interface representing computer vision technology" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBoTnFG8Z3ohlfAszJaRcTXOvxo-pTwfPt0c2yPUOedvdESRyQRCABYIQR2cJT21yZE11087gvOS4fUiWnWTuJaUtYRfnyH2ka9ZY-hNnsqDaiVCBTbgpk0-q7v97sxg4aCPjXqa10Og-1YwuozUO-9ch0vFdY_oWW2yHl1rilQct93LqwBigY-WQt7_EgGl7jKKsgZxV-wLj79UuDrX78t3DInDDqHrtlkZ8Gkr_puEx7kg3Wjg4x1VVEqQQJ4y8LN5MIH-hwhKRA6')">
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md px-2 py-0.5 rounded-lg text-[10px] text-white font-bold border border-white/10">
+                                    8 min
+                                </div>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white leading-tight line-clamp-2 mb-1 group-hover:text-primary transition-colors">GPT-4 Vision Guide: Analyzing Images</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">How to upload and analyze complex visual data.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom CTA -->
+<!-- Fixed position relative to viewport with gradient fade mask -->
+<div class="absolute bottom-0 left-0 w-full z-50 px-5 pb-8 pt-12 pointer-events-none">
+<!-- Gradient background wrapper -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-light via-background-light/95 to-transparent dark:from-background-dark dark:via-background-dark/95 dark:to-transparent"></div>
+<!-- Button -->
+<button class="relative pointer-events-auto w-full flex items-center justify-center gap-3 bg-gradient-to-r from-[#00d2d2] to-primary text-[#0d1b1b] font-bold text-[17px] py-4 rounded-2xl shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.98] transition-all transform ring-1 ring-white/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock_open</span>
+                Unlock Full Library - Upgrade
+            </button>
+</div>
+</div>
+</body></html>

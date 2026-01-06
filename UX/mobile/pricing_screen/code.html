@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ecec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#102222",
+              "surface-dark": "#162a2a",
+              "surface-light": "#ffffff",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "1rem",
+              "lg": "1.5rem", 
+              "xl": "2rem", 
+              "2xl": "2.5rem",
+              "full": "9999px"
+            },
+            boxShadow: {
+              'neon': '0 0 20px -5px rgba(19, 236, 236, 0.3)',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar hiding for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased h-screen w-screen overflow-hidden selection:bg-primary selection:text-background-dark">
+<div class="relative flex h-full w-full flex-col">
+<!-- Top Sticky Header -->
+<div class="flex items-center justify-between p-4 z-20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md sticky top-0 border-b border-gray-200 dark:border-white/5">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">close</span>
+</button>
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Upgrade Plan</h2>
+<button class="flex items-center justify-center p-2 rounded-full opacity-0 pointer-events-none">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto no-scrollbar pb-32">
+<!-- Headline -->
+<div class="px-6 pt-6 pb-2 text-center">
+<h1 class="text-3xl md:text-4xl font-black tracking-tight mb-2">Unlock Full Potential</h1>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium">Get the most out of your AI companion</p>
+</div>
+<!-- Hero Pricing Card -->
+<div class="p-4">
+<div class="relative overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark border-2 border-primary shadow-neon p-6 md:p-8 transform transition-transform hover:scale-[1.01] duration-300">
+<!-- Badge -->
+<div class="absolute top-0 right-0">
+<div class="bg-primary text-background-dark text-xs font-bold px-4 py-1.5 rounded-bl-xl">
+                            BEST VALUE
+                        </div>
+</div>
+<div class="flex flex-col gap-4">
+<div>
+<h2 class="text-lg font-bold text-primary mb-1">ChatGPT Plus</h2>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl md:text-5xl font-black tracking-tight">$20</span>
+<span class="text-slate-500 dark:text-slate-400 font-medium">/ month</span>
+</div>
+<p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Cancel anytime. No hidden fees.</p>
+</div>
+<div class="h-px w-full bg-gray-100 dark:bg-white/10 my-2"></div>
+<div class="flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl shrink-0">bolt</span>
+<span class="text-sm font-medium">Fastest response speed</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl shrink-0">star</span>
+<span class="text-sm font-medium">Priority access to new features</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl shrink-0">psychology</span>
+<span class="text-sm font-medium">Advanced GPT-4 Intelligence</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Comparison Stack -->
+<div class="px-4 py-6">
+<h3 class="text-lg font-bold px-2 mb-4">Compare Plans</h3>
+<div class="grid gap-4 md:grid-cols-2">
+<!-- Free Plan Card -->
+<div class="rounded-xl bg-white dark:bg-white/5 p-5 border border-transparent dark:border-white/5">
+<h4 class="text-slate-900 dark:text-white font-bold mb-4">Free Plan</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg opacity-50">schedule</span>
+                                Standard response speed
+                            </li>
+<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg opacity-50">update</span>
+                                Regular model updates
+                            </li>
+<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg opacity-50">low_priority</span>
+                                Standard access priority
+                            </li>
+</ul>
+</div>
+<!-- Plus Plan Comparison (Mini) -->
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark border border-primary/30 p-5 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+<h4 class="text-primary font-bold mb-4 flex items-center gap-2">
+                            Plus Plan 
+                            <span class="material-symbols-outlined text-sm">auto_awesome</span>
+</h4>
+<ul class="space-y-3 relative z-10">
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-lg">bolt</span>
+                                Ultra-fast response speed
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-lg">rocket_launch</span>
+                                Early access to new features
+                            </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-lg">verified</span>
+                                High priority during peak times
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+<!-- FAQ Section -->
+<div class="px-4 py-4 pb-12">
+<h3 class="text-lg font-bold px-2 mb-4">Frequently Asked Questions</h3>
+<div class="flex flex-col gap-2">
+<!-- FAQ Item 1 -->
+<details class="group bg-white dark:bg-white/5 rounded-xl overflow-hidden border border-transparent dark:border-white/5 open:border-primary/20 transition-colors">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-medium text-slate-900 dark:text-slate-200">
+<span>How does the subscription work?</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Your subscription renews automatically every month. You can manage your subscription settings directly through your Apple ID settings.
+                        </div>
+</details>
+<!-- FAQ Item 2 -->
+<details class="group bg-white dark:bg-white/5 rounded-xl overflow-hidden border border-transparent dark:border-white/5 open:border-primary/20 transition-colors">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-medium text-slate-900 dark:text-slate-200">
+<span>Can I cancel anytime?</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Yes, absolutely. There are no long-term contracts. You can cancel your subscription at any time before the next billing cycle.
+                        </div>
+</details>
+<!-- FAQ Item 3 -->
+<details class="group bg-white dark:bg-white/5 rounded-xl overflow-hidden border border-transparent dark:border-white/5 open:border-primary/20 transition-colors">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-medium text-slate-900 dark:text-slate-200">
+<span>Is this the official OpenAI app?</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            This is a guide app designed to help you get the most out of your experience. We are not affiliated directly with OpenAI.
+                        </div>
+</details>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom CTA -->
+<div class="absolute bottom-0 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-gray-200 dark:border-white/10 p-4 pb-8 z-30">
+<div class="max-w-md mx-auto w-full flex flex-col gap-3">
+<button class="w-full h-14 bg-primary hover:bg-opacity-90 active:scale-[0.98] transition-all rounded-full flex items-center justify-center gap-2 shadow-lg shadow-primary/20 group">
+<span class="text-background-dark font-bold text-lg">Subscribe for $20.00</span>
+<span class="material-symbols-outlined text-background-dark group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-2 text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-sm">lock</span>
+                    Secured with Apple Pay
+                </div>
+</div>
+</div>
+</div>
+</body></html>

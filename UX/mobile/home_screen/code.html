@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ChatGPT Plus Guide - Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ecec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#102222",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c2c",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "1.75rem", // Adding for larger cards
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d1b1b] dark:text-gray-100 antialiased overflow-x-hidden pb-24">
+<!-- App Header -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-5 py-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md transition-colors duration-300">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center size-10 rounded-xl bg-primary/20 dark:bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">smart_toy</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">GPT Guide</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-300">search</span>
+</button>
+<button class="relative flex items-center justify-center size-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-300">notifications</span>
+<span class="absolute top-2 right-2 size-2.5 rounded-full bg-red-500 border-2 border-background-light dark:border-background-dark"></span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex flex-col gap-6 px-5 pt-2">
+<!-- Hero Card -->
+<section class="relative overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm">
+<div class="absolute top-0 right-0 -mt-10 -mr-10 size-64 rounded-full bg-primary/10 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 -mb-10 -ml-10 size-40 rounded-full bg-blue-500/10 blur-2xl"></div>
+<div class="relative p-6 flex flex-col items-start gap-4">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">bolt</span>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">New Features</span>
+</div>
+<div class="space-y-2">
+<h2 class="text-2xl font-bold leading-tight text-gray-900 dark:text-white">Unlock GPT-4 Power</h2>
+<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-[85%]">
+                        Master ChatGPT Plus today. 5 new advanced guides added this week.
+                    </p>
+</div>
+<button class="mt-2 flex items-center justify-center gap-2 h-11 px-6 rounded-xl bg-primary hover:bg-primary/90 active:scale-95 transition-all text-[#0d1b1b] font-bold text-sm shadow-[0_4px_12px_rgba(19,236,236,0.3)]">
+<span>Start Learning</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Category Scroller -->
+<section class="w-full -mx-5 px-5">
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-1 snap-x">
+<button class="snap-start shrink-0 h-9 px-5 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium transition-transform active:scale-95">
+                    All
+                </button>
+<button class="snap-start shrink-0 h-9 px-5 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium transition-transform active:scale-95 whitespace-nowrap">
+                    Plugins
+                </button>
+<button class="snap-start shrink-0 h-9 px-5 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium transition-transform active:scale-95 whitespace-nowrap">
+                    Code Interpreter
+                </button>
+<button class="snap-start shrink-0 h-9 px-5 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium transition-transform active:scale-95 whitespace-nowrap">
+                    Image Gen
+                </button>
+<button class="snap-start shrink-0 h-9 px-5 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium transition-transform active:scale-95 whitespace-nowrap">
+                    Prompts
+                </button>
+</div>
+</section>
+<!-- Featured Guide -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Featured Guide</h3>
+<button class="text-primary text-sm font-semibold hover:opacity-80">See all</button>
+</div>
+<div class="group relative flex flex-col overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm hover:shadow-md transition-shadow">
+<div class="aspect-[16/9] w-full bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract colorful digital waves representing AI generation" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzU9Hk44Sn_WvW7AiOSx3CVkx7NmQBssIYkLr_TLzfFcajFsXxl6txvPFZl9Fk-OGtWUhNk2Ky4IWYPxEtyRgbqBfo1Pb_rmRnURq0zPSuUgORFZntk8ASu_HSRbTipzr0Q0gap3KhUvf1N8i463grAwYtJg8BeLbjg8TtouFOjCsHDbt1rXApx560OZZvUZH4YFyz3VDBv4WXa5KrlZZeV71iKmpKFLXEtJk_Uv8ScLlrq9WW8NO6kM2IXAMBln22bGnP8UCkLVHB");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md border border-white/10 text-white text-xs font-bold uppercase tracking-wide">
+                        Trending
+                    </div>
+</div>
+<div class="p-5 flex flex-col gap-2">
+<h4 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">Deep Dive: Using DALL-E 3</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
+                        Learn how to create stunning logo designs and consistent character sheets in minutes using the new DALL-E 3 model.
+                    </p>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-xs font-medium text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> 8 min read
+                        </span>
+<button class="text-primary font-semibold text-sm hover:underline">Read Now</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Latest Guides List -->
+<section class="flex flex-col gap-4 pb-4">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Latest Guides</h3>
+<!-- List Item 1 -->
+<div class="flex items-start gap-4 p-3 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm active:scale-[0.99] transition-transform">
+<div class="size-20 shrink-0 rounded-xl bg-gray-200 dark:bg-gray-800 bg-cover bg-center" data-alt="Data charts and analytics dashboard on a screen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCuqHy9ttP5HtVWn4R3BC6_dRadgJN2OPiNsHAJhPUEdDEl3BXUWscM9UNqWI3AG3UnsIcdyqSMVG0hQpeFPaD6rAWozbjG0vHE-o4Iuq5GH8L9SrP5wfAiFc4dq71TrgaLZyTdnV_dS_qPTYMEwwIekGiTQUjBbuKudrGE4BVB_wkrOm9XTpgQY6RCmRwrrgDs4TVg3U_KcSztW76c6S7mbydkg22dDAv5EGwUgkCEBlb_8ATbIGJF9XIytwSGUWQBo7NfkxDRovrK");'></div>
+<div class="flex flex-col flex-1 min-w-0 gap-1">
+<div class="flex justify-between items-start">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white line-clamp-2 leading-snug">
+                            Advanced Data Analysis with CSV Files
+                        </h4>
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">Learn to clean and visualize data sets.</p>
+<div class="mt-auto pt-1 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-[10px] font-bold uppercase">Pro</span>
+<span class="text-[10px] text-gray-400">5 min read</span>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-start gap-4 p-3 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm active:scale-[0.99] transition-transform">
+<div class="size-20 shrink-0 rounded-xl bg-gray-200 dark:bg-gray-800 bg-cover bg-center" data-alt="Close up of computer code on a monitor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCI3rnk55qC-fOkbxv_1yiyHXDyQgwhMooGCj_8afn8s5WIj7rZ0D8oKn0xQ-WT4lxiMfGceD2iJvq_zZ3TFmTCHCj06VlaPuHXE3kkBScAacCDmZQyyWD0vEWbbyzyOcbY_1EqioOwsIOl_PfHX7qCZblFJnICZVK9LZVhDRzbVSKdal8Z9MwNjkaukpLfEUNMuFHbtSIPzqSk2gZY7UMANGhmJDoDQR_JQ6F-xkSlY-gf6iZU5rlG9qBhvvp1j9cqCRkUHF4Kwfo7");'></div>
+<div class="flex flex-col flex-1 min-w-0 gap-1">
+<div class="flex justify-between items-start">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white line-clamp-2 leading-snug">
+                            Top 10 Plugins for Productivity in 2024
+                        </h4>
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">Streamline your workflow effortlessly.</p>
+<div class="mt-auto pt-1 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-300 text-[10px] font-bold uppercase">Free</span>
+<span class="text-[10px] text-gray-400">3 min read</span>
+</div>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex items-start gap-4 p-3 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm active:scale-[0.99] transition-transform">
+<div class="size-20 shrink-0 rounded-xl bg-gray-200 dark:bg-gray-800 bg-cover bg-center" data-alt="Abstract neural network connection nodes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfUaa5EJMTXCiGmtzycoBTYDFY3GhIBS1GKO5Bfk9ZRiRhXaWrFJSFnK7v-orLZf85uKxlJcYroL2AMDOYk3EOD3VkuaDGmb33hDoKT3b-At0vjvEqnll84YlxCO7ovDnFNC-GF5Xs8xm-63wfiZFubtOm14nCQknbqF7eS0VOODJP7R9TmaanfTMcf49H-ggEoFf84e7UUIpBNoGxyA7I5m1hDwgeYMrBHjPa9jU3cZIbaPRgLNZduje8Ni_P9jRZwQE5MBvouqpa");'></div>
+<div class="flex flex-col flex-1 min-w-0 gap-1">
+<div class="flex justify-between items-start">
+<h4 class="text-sm font-bold text-gray-900 dark:text-white line-clamp-2 leading-snug">
+                            Fixing Common GPT-4 Hallucinations
+                        </h4>
+<button class="text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">Techniques for factual accuracy.</p>
+<div class="mt-auto pt-1 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-[10px] font-bold uppercase">Pro</span>
+<span class="text-[10px] text-gray-400">7 min read</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom CTA Strip -->
+<section class="mt-2 mb-6">
+<div class="relative overflow-hidden rounded-2xl bg-gray-900 dark:bg-primary/10 p-5 flex items-center justify-between">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#13ecec 1px, transparent 1px); background-size: 16px 16px;"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<h4 class="text-white dark:text-primary font-bold text-base">Unlock All 500+ Guides</h4>
+<p class="text-gray-400 dark:text-primary/70 text-xs">Join Premium for exclusive content.</p>
+</div>
+<button class="relative z-10 h-9 px-4 bg-primary text-[#0d1b1b] text-sm font-bold rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                    Upgrade
+                </button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-lg border-t border-gray-100 dark:border-gray-800 pb-safe">
+<div class="flex justify-around items-center h-16 px-2">
+<a class="flex flex-col items-center justify-center gap-1 w-16 h-full text-primary" href="#">
+<span class="material-symbols-outlined text-2xl filled">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-16 h-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-16 h-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">bookmark</span>
+<span class="text-[10px] font-medium">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-16 h-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" href="#">
+<div class="size-6 rounded-full bg-gray-300 dark:bg-gray-600 overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtQ1nSjWV8DwByRpKAjGQ1MvS_kUNoGo54LLvspSj5SeBQS-Fzg2Ddn3h2NINVMgZa1Ayj7Wpka-UaLQzDEc5VwaVmtAZGNiaT-FrgTdhZtQyIAH7SFWURxdpR60S4XWK46YPZCp4YduT-vRSQ6I8oJBqgd3HKW4jJh4FPQwnQqNlj1jtbTUVuAqvlwpuDz34AhMf12SfDygn4KUel8nh1xujHbR7LP-q-J04MxpKTnJYwvMOKA_K35xUuWzh2D0DTEYcvRaez90c3"/>
+</div>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Safe area padding for iPhone home indicator -->
+<style>
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+    </style>
+</body></html>

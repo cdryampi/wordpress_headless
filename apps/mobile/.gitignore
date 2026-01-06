@@ -1,0 +1,74 @@
+# ================================================
+# WP Headless App (Expo/React Native) - .gitignore
+# ================================================
+
+# -------------------- Dependencies --------------------
+node_modules/
+
+# -------------------- Expo --------------------
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# -------------------- Native Builds --------------------
+/ios/
+/android/
+.kotlin/
+*.orig.*
+
+# -------------------- Signing Keys & Certs --------------------
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.cer
+*.mobileprovision
+*.keystore
+
+# -------------------- Metro --------------------
+.metro-health-check*
+
+# -------------------- Debug / Logs --------------------
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.log
+
+# -------------------- TypeScript --------------------
+*.tsbuildinfo
+.tsbuildinfo
+
+# -------------------- OS Files --------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# -------------------- Environment --------------------
+.env
+.env.local
+.env*.local
+.env.development
+.env.production
+
+# -------------------- IDE / Editor --------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# -------------------- Testing / Coverage --------------------
+coverage/
+.nyc_output/
+__tests__/artifacts/
+
+# -------------------- Build / Cache --------------------
+.cache/
+*.bak
+*.backup
+
+# -------------------- EAS Build (Expo Application Services) --------------------
+.eas/
+eas.json.bak

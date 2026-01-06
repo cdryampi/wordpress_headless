@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - ChatGPT Plus Guide</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Config -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ecec",
+                        "primary-hover": "#0fbaba",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#102222",
+                        "surface-dark": "#162828", // Slightly lighter than background-dark for cards
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "2rem", 
+                        "xl": "3rem", 
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'glow': '0 0 20px -5px rgba(19, 236, 236, 0.3)'
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom spinner for loading state */
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 3px solid #102222;
+            width: 20px;
+            height: 20px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center font-display antialiased p-4 transition-colors duration-300">
+<!-- Main Container / Card -->
+<main class="w-full max-w-[420px] bg-surface-light dark:bg-surface-dark rounded-lg shadow-soft overflow-hidden relative border border-gray-100 dark:border-gray-800">
+<!-- Header Image -->
+<div class="h-40 w-full relative bg-background-dark overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-80" data-alt="Abstract cyan and dark teal digital wave pattern background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxvmJav0HYl4i10hxSoHYCFnH6LDiy2U0MPsVkIYQ4Gg24PEeCmFVJIuQIJnEdJ1RQiohJPNDuV156RXPuJMhGzUYPFeo_aTZS-Vyssn_pkKCUTLwFfKmc4-n8xR1iTHxkaFsxvIRHjflY5YivSUNE15yfUGqYINIMxUSeBWZ62A_Q8TiSjP6uL7_GZ7lJsc38Ycvw3A1KFKKKB494fa4hifl5zVL-i8RAloX3PlzKyT0PF_23aQFompXntkOmDePh0W_7rHRm54Og');"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-light dark:to-surface-dark"></div>
+<!-- Logo / Brand Icon overlay -->
+<div class="absolute bottom-4 left-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-glow text-[#102222]">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<h2 class="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Guide Plus</h2>
+</div>
+</div>
+<!-- Content Padding -->
+<div class="px-6 pt-2 pb-8">
+<!-- Headline Group -->
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Welcome Back</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Sign in to access your saved prompts and guides.</p>
+</div>
+<!-- Error State Example (Hidden by default, remove 'hidden' to see) -->
+<div class="hidden mb-6 p-4 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-900/50 flex items-start gap-3">
+<span class="material-symbols-outlined text-red-500 text-[20px] mt-0.5">error</span>
+<div>
+<h4 class="text-red-700 dark:text-red-300 text-sm font-semibold">Authentication Error</h4>
+<p class="text-red-600 dark:text-red-400 text-xs mt-0.5">The credentials you entered are incorrect. Please try again.</p>
+</div>
+</div>
+<!-- Main Form -->
+<form class="space-y-5">
+<!-- Email Field -->
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5 ml-1">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors">mail</span>
+</div>
+<input class="form-input block w-full pl-11 pr-4 py-4 bg-gray-50 dark:bg-[#102222] border-none rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-[#0d1c1c] transition-all" placeholder="name@example.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div>
+<div class="flex justify-between items-center mb-1.5 ml-1">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors">lock</span>
+</div>
+<input class="form-input block w-full pl-11 pr-12 py-4 bg-gray-50 dark:bg-[#102222] border-none rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-[#0d1c1c] transition-all" placeholder="••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 cursor-pointer focus:outline-none" type="button">
+<span class="material-symbols-outlined" data-icon="EyeSlash">visibility_off</span>
+</button>
+</div>
+<div class="flex justify-end mt-2">
+<a class="text-xs font-medium text-primary hover:text-primary-hover transition-colors" href="#">Forgot Password?</a>
+</div>
+</div>
+<!-- Primary Button (Login) -->
+<button class="w-full flex items-center justify-center bg-primary hover:bg-primary-hover text-[#102222] font-bold py-4 px-6 rounded-xl transition-all transform active:scale-[0.98] shadow-glow" type="button">
+                    Log In
+                </button>
+<!-- Loading State Button Example (Hidden by default) -->
+<button class="hidden w-full flex items-center justify-center bg-primary/80 text-[#102222] font-bold py-4 px-6 rounded-xl cursor-not-allowed" type="button">
+<div class="spinner mr-2"></div>
+                    Logging in...
+                </button>
+</form>
+<!-- Divider -->
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-200 dark:border-gray-700"></div>
+</div>
+<div class="relative flex justify-center text-sm">
+<span class="px-4 bg-surface-light dark:bg-surface-dark text-gray-500 dark:text-gray-400 font-medium">Or continue with</span>
+</div>
+</div>
+<!-- Alternative Auth Methods -->
+<div class="space-y-3">
+<!-- Magic Link -->
+<button class="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary text-gray-700 dark:text-white font-semibold py-3.5 px-6 rounded-xl transition-all group" type="button">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">magic_button</span>
+                    Send Magic Link
+                </button>
+<!-- Google Auth -->
+<button class="w-full flex items-center justify-center gap-3 bg-white dark:bg-[#102222] border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-[#152a2a] text-gray-700 dark:text-white font-medium py-3.5 px-6 rounded-xl transition-all" type="button">
+<!-- Google SVG Icon -->
+<svg class="w-5 h-5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                    Continue with Google
+                </button>
+</div>
+<!-- Footer Links -->
+<div class="mt-8 text-center">
+<p class="text-sm text-gray-500 dark:text-gray-400">
+                    Don't have an account? 
+                    <a class="font-semibold text-primary hover:text-primary-hover transition-colors ml-1" href="#">Sign up</a>
+</p>
+</div>
+</div>
+</main>
+</body></html>
